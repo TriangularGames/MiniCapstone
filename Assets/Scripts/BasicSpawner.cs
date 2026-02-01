@@ -2,6 +2,7 @@ using Fusion;
 using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -102,6 +103,22 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             {
                 StartGame(GameMode.Client);
             }
+        }
+    }
+
+    public void Host()
+    {
+        if (_runner == null)
+        {
+            StartGame(GameMode.Host);
+        }
+    }
+
+    public void Client()
+    {
+        if (_runner == null)
+        {
+            StartGame(GameMode.Client);
         }
     }
 
