@@ -3,12 +3,19 @@ using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
     [SerializeField] private NetworkPrefabRef _playerPrefab;
     private Dictionary<PlayerRef, NetworkObject> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject>();
+    InputAction moveAction;
+
+    private void Start()
+    {
+        moveAction = InputSystem.actions.FindAction("Move");
+    }
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
@@ -35,17 +42,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         var data = new NetworkInputData();
 
-        if (Input.GetKey(KeyCode.W))
-            data.direction += Vector3.forward;
-
-        if (Input.GetKey(KeyCode.S))
-            data.direction += Vector3.back;
-
-        if (Input.GetKey(KeyCode.A))
-            data.direction += Vector3.left;
-
-        if (Input.GetKey(KeyCode.D))
-            data.direction += Vector3.right;
+        data.direction = moveAction.ReadValue<Vector2>();
 
         input.Set(data);
     }
