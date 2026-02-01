@@ -16,6 +16,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         moveAction = InputSystem.actions.FindAction("Move");
     }
+  
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
@@ -26,6 +27,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
             // Keep track of the player avatars for easy access
             _spawnedCharacters.Add(player, networkPlayerObject);
+            RPC_SendLogToHost($"Player {player} has joined the game.");
         }
     }
 
@@ -35,6 +37,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             runner.Despawn(networkObject);
             _spawnedCharacters.Remove(player);
+            RPC_SendLogToHost($"Player {player} has left the game.");
         }
     }
 
@@ -102,5 +105,11 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
                 StartGame(GameMode.Client);
             }
         }
+    }
+
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    public static void RPC_SendLogToHost(string message)
+    {
+        Debug.Log(message);
     }
 }
