@@ -27,7 +27,6 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
             // Keep track of the player avatars for easy access
             _spawnedCharacters.Add(player, networkPlayerObject);
-            RPC_SendLogToHost($"Player {player} has joined the game.");
         }
     }
 
@@ -37,7 +36,6 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             runner.Despawn(networkObject);
             _spawnedCharacters.Remove(player);
-            RPC_SendLogToHost($"Player {player} has left the game.");
         }
     }
 
@@ -108,8 +106,31 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     }
 
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    public static void RPC_SendLogToHost(string message)
+    public static void RPC_SendLogToHost(NetworkRunner run, string message)
     {
         Debug.Log(message);
+    }
+
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    public static void RPC_SendLogToClient(NetworkRunner run, string message)
+    {
+        Debug.Log(message);
+    }
+    private void Update()
+    {
+        if (_runner.IsClient)
+        {
+            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            {
+                RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
+            }
+        }
+        if (_runner.IsServer)
+        {
+            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            {
+                RPC_SendLogToClient(_runner, "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues");
+            }
+        }
     }
 }
