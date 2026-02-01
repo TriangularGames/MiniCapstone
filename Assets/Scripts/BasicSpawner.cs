@@ -118,18 +118,21 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     }
     private void Update()
     {
-        if (_runner.IsClient)
+        if (_runner != null)
         {
-            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            if (_runner.IsClient)
             {
-                RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
+                if (Keyboard.current.digit1Key.wasPressedThisFrame)
+                {
+                    RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
+                }
             }
-        }
-        if (_runner.IsServer)
-        {
-            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            if (_runner.IsServer)
             {
-                RPC_SendLogToClient(_runner, "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues");
+                if (Keyboard.current.digit1Key.wasPressedThisFrame)
+                {
+                    RPC_SendLogToClient(_runner, "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues");
+                }
             }
         }
     }
