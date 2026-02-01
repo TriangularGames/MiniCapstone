@@ -42,7 +42,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         var data = new NetworkInputData();
 
-        data.direction = moveAction.ReadValue<Vector2>();
+        data.direction = new Vector3(moveAction.ReadValue<Vector2>().x, 0, moveAction.ReadValue<Vector2>().y);
 
         input.Set(data);
     }
