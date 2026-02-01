@@ -111,7 +111,6 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         Debug.Log(message);
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     public static void RPC_SendLogToClient(NetworkRunner run, string message)
     {
         Debug.Log(message);
@@ -124,7 +123,8 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             {
                 if (Keyboard.current.digit1Key.wasPressedThisFrame)
                 {
-                    RPC_SendLogToClient(_runner, "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues");
+                    RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
+                   
                     
                 }
             }
@@ -132,7 +132,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             {
                 if (Keyboard.current.digit1Key.wasPressedThisFrame)
                 {
-                    RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
+                    RPC_SendLogToClient(_runner, "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues");
                 }
             }
         }
