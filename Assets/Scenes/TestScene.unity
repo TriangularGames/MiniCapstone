@@ -119,6 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38187010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 38187012}
+  - component: {fileID: 38187011}
+  m_Layer: 0
+  m_Name: XR Interaction Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &38187011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38187010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.XRInteractionManager
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+--- !u!4 &38187012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38187010}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9824488, y: -0.84480876, z: -2.1541097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344832436
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344832438}
   - component: {fileID: 344832437}
+  - component: {fileID: 344832439}
   m_Layer: 0
   m_Name: BasicSpawner
   m_TagString: Untagged
@@ -150,6 +197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicSpawner
   _playerPrefab:
     RawGuidValue: 4e423cf040eac374d89850e4e35b61c3
+  _VRPlayerPrefab:
+    RawGuidValue: 00000000000000000000000000000000
+  isVR: 0
 --- !u!4 &344832438
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +215,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &344832439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344832436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5f99bdf96a03c41bb438d72b559812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VRSetup
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,3 +1004,4 @@ SceneRoots:
   - {fileID: 803274349}
   - {fileID: 344832438}
   - {fileID: 1503891338}
+  - {fileID: 38187012}
