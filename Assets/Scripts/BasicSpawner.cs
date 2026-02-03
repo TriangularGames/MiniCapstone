@@ -10,12 +10,21 @@ using UnityEngine.SceneManagement;
 public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
     [SerializeField] private NetworkPrefabRef _playerPrefab;
+    [SerializeField] private NetworkPrefabRef _VRPlayerPrefab;
     private Dictionary<PlayerRef, NetworkObject> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject>();
     InputAction moveAction;
+    public bool isVR = false;
 
     private void Start()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
+        if (isVR)
+        {
+
+        }
+        else
+        {
+            moveAction = InputSystem.actions.FindAction("Move");
+        }
     }
   
 
