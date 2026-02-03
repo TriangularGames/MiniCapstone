@@ -122,36 +122,36 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, HostMode = RpcHostMode.SourceIsHostPlayer)]
     public static void RPC_SendLogToHost(NetworkRunner run, string message)
     {
         Debug.Log(message);
     }
 
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, HostMode = RpcHostMode.SourceIsServer)]
     public static void RPC_SendLogToClient(NetworkRunner run, string message)
     {
         Debug.Log(message);
     }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All, HostMode = RpcHostMode.SourceIsServer)]
+    public void RPC_RelayMessage(string message, PlayerRef messageSource)
+    {
+        if (messageSource == Runner.LocalPlayer)
+        {
+            Debug.Log("You said " + message);
+        }
+        else
+        {
+            Debug.Log("Someone else said " + message);
+        }
+    }
+    
     private void Update()
     {
-        if (_runner != null)
+        if (Object.HasInputAuthority && Input.GetKeyDown(KeyCode.R))
         {
-            if (_runner.IsClient)
-            {
-                if (Keyboard.current.digit1Key.wasPressedThisFrame)
-                {
-                    RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
-                   
-                    
-                }
-            }
-            if (_runner.IsServer)
-            {
-                if (Keyboard.current.digit1Key.wasPressedThisFrame)
-                {
-                    RPC_SendLogToClient(_runner, "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues");
-                }
-            }
+            RPC_SendMessage("Hey Mate!");
         }
     }
 }
