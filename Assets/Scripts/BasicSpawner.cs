@@ -137,7 +137,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     [Rpc(RpcSources.StateAuthority, RpcTargets.All, HostMode = RpcHostMode.SourceIsServer)]
     public void RPC_RelayMessage(string message, PlayerRef messageSource)
     {
-        if (messageSource == Runner.LocalPlayer)
+        if (messageSource == _runner.LocalPlayer)
         {
             Debug.Log("You said " + message);
         }
@@ -149,9 +149,24 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     
     private void Update()
     {
-        if (Object.HasInputAuthority && Input.GetKeyDown(KeyCode.R))
+        if (_runner != null)
         {
-            RPC_SendMessage("Hey Mate!");
+            if (_runner.IsClient)
+            {
+                if (Keyboard.current.digit1Key.wasPressedThisFrame)
+                {
+                    RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
+
+
+                }
+            }
+            if (_runner.IsServer)
+            {
+                if (Keyboard.current.digit1Key.wasPressedThisFrame)
+                {
+                    RPC_SendLogToClient(_runner, "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues");
+                }
+            }
         }
     }
 }
