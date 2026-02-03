@@ -1,6 +1,7 @@
 using Fusion;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : NetworkBehaviour
 {
@@ -22,7 +23,7 @@ public class Player : NetworkBehaviour
 
     private void Update()
     {
-        if (Object.HasInputAuthority && Input.GetKeyDown(KeyCode.R))
+        if (Object.HasInputAuthority && Keyboard.current.digit1Key.wasPressedThisFrame)
         {
             RPC_SendMessage("Hey Mate!");
         }
