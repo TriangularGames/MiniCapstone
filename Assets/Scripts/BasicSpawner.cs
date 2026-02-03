@@ -122,13 +122,13 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, HostMode = RpcHostMode.SourceIsHostPlayer)]
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, HostMode = RpcHostMode.SourceIsServer)]
     public static void RPC_SendLogToHost(NetworkRunner run, string message)
     {
         Debug.Log(message);
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, HostMode = RpcHostMode.SourceIsServer)]
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority, HostMode = RpcHostMode.SourceIsHostPlayer)]
     public static void RPC_SendLogToClient(NetworkRunner run, string message)
     {
         Debug.Log(message);
@@ -156,7 +156,6 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
                 if (Keyboard.current.digit1Key.wasPressedThisFrame)
                 {
                     RPC_SendLogToHost(_runner, "Skibidi bop mm dada BOOM");
-
 
                 }
             }
