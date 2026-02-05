@@ -8,7 +8,6 @@ public class VRSetup : MonoBehaviour
     private void Awake()
     {
         bs = GetComponent<BasicSpawner>();
-        StopXR();
         StartCoroutine("StartXRCoroutine");
     }
 
@@ -20,14 +19,15 @@ public class VRSetup : MonoBehaviour
         if (XRGeneralSettings.Instance.Manager.activeLoader == null)
         {
             Debug.Log("No XR Detected");
-            GameObject.Find("VRPlayer").gameObject.SetActive(false);
-            GameObject.Find("XR Canvas").gameObject.SetActive(false);
+            Destroy(GameObject.Find("VRPlayer"));
+            Destroy(GameObject.Find("XR Canvas"));
         }
         else
         {
             Debug.Log("Starting XR...");
             bs.isVR = true;
-            //GameObject.Find("Main Camera").gameObject.SetActive(false);
+            Destroy(GameObject.Find("Main Camera"));
+            Destroy(GameObject.Find("Canvas"));
             XRGeneralSettings.Instance.Manager.StartSubsystems();
         }
     }

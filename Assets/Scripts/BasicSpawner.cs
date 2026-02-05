@@ -3,6 +3,7 @@ using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,10 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         if (!isVR)
         {
             moveAction = InputSystem.actions.FindAction("Move");
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("Chat").SetActive(true);
         }
     }
   
@@ -141,14 +146,14 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
-    [SerializeField] private GameObject XRCanvas;
+    [SerializeField] private GameObject XRMenu;
     [SerializeField] private GameObject SetupVR;
     public void Host()
     {
         if (_runner == null)
         {
             StartGame(GameMode.Host);
-            XRCanvas.SetActive(false);
+            Destroy(XRMenu);
             Destroy(SetupVR);
 
         }
@@ -159,7 +164,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         if (_runner == null)
         {
             StartGame(GameMode.Client);
-            XRCanvas.SetActive(false);
+            Destroy(XRMenu);
             Destroy(SetupVR);
         }
     }
