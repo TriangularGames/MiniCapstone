@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
     [SerializeField] private NetworkPrefabRef _playerPrefab;
+    [SerializeField] private NetworkPrefabRef _VRplayerPrefab;
     private Dictionary<PlayerRef, NetworkObject> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject>();
     InputAction moveAction;
     public bool isVR = false;
@@ -36,7 +37,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             }
             else
             {
-                networkPlayerObject = GameObject.FindGameObjectWithTag("VRPlayer").GetComponent<NetworkObject>();
+                networkPlayerObject = runner.Spawn(_VRplayerPrefab, spawnPosition, Quaternion.identity, player);
             }
             // Keep track of the player avatars for easy access
             if (networkPlayerObject != null)
@@ -44,7 +45,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
                 _spawnedCharacters.Add(player, networkPlayerObject);
             }
         }
-        else
+        else if (runner.IsClient)
         {
             // Create a unique position for the player
             Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.PlayerCount) * 3, 1, 0);
@@ -55,7 +56,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             }
             else
             {
-                networkPlayerObject = GameObject.FindGameObjectWithTag("VRPlayer").GetComponent<NetworkObject>();
+                networkPlayerObject = runner.Spawn(_VRplayerPrefab, spawnPosition, Quaternion.identity, player);
             }
             // Keep track of the player avatars for easy access
             if (networkPlayerObject != null)
@@ -141,12 +142,15 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     }
 
     [SerializeField] private GameObject XRCanvas;
+    [SerializeField] private GameObject SetupVR;
     public void Host()
     {
         if (_runner == null)
         {
             StartGame(GameMode.Host);
             XRCanvas.SetActive(false);
+            Destroy(SetupVR);
+
         }
     }
 
@@ -156,6 +160,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             StartGame(GameMode.Client);
             XRCanvas.SetActive(false);
+            Destroy(SetupVR);
         }
     }
 }
