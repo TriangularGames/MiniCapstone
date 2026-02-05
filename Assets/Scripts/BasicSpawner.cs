@@ -10,18 +10,13 @@ using UnityEngine.SceneManagement;
 public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
     [SerializeField] private NetworkPrefabRef _playerPrefab;
-    [SerializeField] private NetworkPrefabRef _VRPlayerPrefab;
     private Dictionary<PlayerRef, NetworkObject> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject>();
     InputAction moveAction;
     public bool isVR = false;
 
     private void Start()
     {
-        if (isVR)
-        {
-
-        }
-        else
+        if (!isVR)
         {
             moveAction = InputSystem.actions.FindAction("Move");
         }
@@ -34,9 +29,39 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             // Create a unique position for the player
             Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.PlayerCount) * 3, 1, 0);
-            NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
+            NetworkObject networkPlayerObject = null;
+            if (!isVR)
+            {
+                networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
+            }
+            else
+            {
+                networkPlayerObject = GameObject.FindGameObjectWithTag("VRPlayer").GetComponent<NetworkObject>();
+            }
             // Keep track of the player avatars for easy access
-            _spawnedCharacters.Add(player, networkPlayerObject);
+            if (networkPlayerObject != null)
+            {
+                _spawnedCharacters.Add(player, networkPlayerObject);
+            }
+        }
+        else
+        {
+            // Create a unique position for the player
+            Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.PlayerCount) * 3, 1, 0);
+            NetworkObject networkPlayerObject = null;
+            if (!isVR)
+            {
+                networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
+            }
+            else
+            {
+                networkPlayerObject = GameObject.FindGameObjectWithTag("VRPlayer").GetComponent<NetworkObject>();
+            }
+            // Keep track of the player avatars for easy access
+            if (networkPlayerObject != null)
+            {
+                _spawnedCharacters.Add(player, networkPlayerObject);
+            }
         }
     }
 
@@ -115,11 +140,13 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
+    [SerializeField] private GameObject XRCanvas;
     public void Host()
     {
         if (_runner == null)
         {
             StartGame(GameMode.Host);
+            XRCanvas.SetActive(false);
         }
     }
 
@@ -128,6 +155,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         if (_runner == null)
         {
             StartGame(GameMode.Client);
+            XRCanvas.SetActive(false);
         }
     }
 }
