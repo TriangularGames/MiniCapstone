@@ -15,9 +15,6 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     private void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
-        //{
-        //    GameObject.FindGameObjectWithTag("Chat").SetActive(true);
-        //}
     }
   
 

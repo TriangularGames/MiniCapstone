@@ -1,7 +1,9 @@
 using Fusion;
 using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.XR.Management;
 
 public class Player : NetworkBehaviour
@@ -9,6 +11,7 @@ public class Player : NetworkBehaviour
     private NetworkCharacterController _cc;
     public GameObject PC;
     public GameObject VR;
+    private GameObject VRCanvas;
 
     private void Awake()
     {
@@ -19,8 +22,16 @@ public class Player : NetworkBehaviour
         else
         {
             Instantiate(VR, transform);
+            VRCanvas = GameObject.Find("XR Canvas").transform.GetChild(0).gameObject;
+            VRCanvas.SetActive(true);
         }
         _cc = GetComponent<NetworkCharacterController>();
+
+        if (VRCanvas != null)
+        {
+            Button Send = VRCanvas.transform.GetChild(2).gameObject.GetComponent<Button>();
+            Send.onClick.AddListener(SendMsg);
+        }
     }
 
     public override void FixedUpdateNetwork()
@@ -63,5 +74,10 @@ public class Player : NetworkBehaviour
         }
 
         _messages.text += message;
+    }
+
+    public void SendMsg()
+    {
+        if (Object.HasInputAuthority) RPC_SendMessage("Tally Ho!");
     }
 }
