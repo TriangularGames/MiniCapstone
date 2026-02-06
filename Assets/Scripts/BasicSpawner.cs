@@ -14,23 +14,23 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     [SerializeField] private NetworkPrefabRef _VRplayerPrefab;
     private Dictionary<PlayerRef, NetworkObject> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject>();
     InputAction moveAction;
-    private bool isVR = false;
 
     private void Start()
     {
-        if (!isVR)
-        {
-            moveAction = InputSystem.actions.FindAction("Move");
-        }
-        else
-        {
-            GameObject.FindGameObjectWithTag("Chat").SetActive(true);
-        }
+        moveAction = InputSystem.actions.FindAction("Move");
+        //{
+        //    GameObject.FindGameObjectWithTag("Chat").SetActive(true);
+        //}
     }
   
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
+        bool isVR = false;
+        if (GameObject.Find("XR Interaction Manager"))
+        {
+            isVR = true;
+        }
         if (runner.IsServer)
         {
             // Create a unique position for the player
@@ -90,17 +90,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     }
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
-    public void OnConnectedToServer(NetworkRunner runner)
-    {
-        if (GameObject.Find("XR Interaction Manager"))
-        {
-            isVR = true;
-        }
-        else
-        {
-            isVR = false;
-        }
-    }
+    public void OnConnectedToServer(NetworkRunner runner) { }
     public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason) { }
     public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
     public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { }
@@ -148,12 +138,10 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             if (GUI.Button(new Rect(0, 0, 200, 40), "Host"))
             {
                 StartGame(GameMode.Host);
-                isVR = false;
             }
             if (GUI.Button(new Rect(0, 40, 200, 40), "Join"))
             {
                 StartGame(GameMode.Client);
-                isVR = false;
             }
         }
     }
@@ -165,7 +153,6 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             StartGame(GameMode.Host);
             Destroy(GameObject.Find("LobbyMenu"));
             Destroy(GameObject.Find("VRPlayer"));
-            isVR = true;
 
         }
     }
@@ -177,7 +164,6 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             StartGame(GameMode.Client);
             Destroy(GameObject.Find("LobbyMenu"));
             Destroy(GameObject.Find("VRPlayer"));
-            isVR = true;
         }
     }
 }
