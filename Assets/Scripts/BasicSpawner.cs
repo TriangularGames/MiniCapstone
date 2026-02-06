@@ -14,7 +14,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     [SerializeField] private NetworkPrefabRef _VRplayerPrefab;
     private Dictionary<PlayerRef, NetworkObject> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject>();
     InputAction moveAction;
-    public bool isVR = false;
+    private bool isVR = false;
 
     private void Start()
     {
@@ -133,7 +133,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 
     private void OnGUI()
     {
-        if (_runner == null && !isVR)
+        if (_runner == null)
         {
             if (GUI.Button(new Rect(0, 0, 200, 40), "Host"))
             {
@@ -153,6 +153,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             StartGame(GameMode.Host);
             Destroy(GameObject.Find("LobbyMenu"));
             Destroy(GameObject.Find("VRPlayer"));
+            isVR = true;
 
         }
     }
@@ -164,6 +165,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
             StartGame(GameMode.Client);
             Destroy(GameObject.Find("LobbyMenu"));
             Destroy(GameObject.Find("VRPlayer"));
+            isVR = true;
         }
     }
 }

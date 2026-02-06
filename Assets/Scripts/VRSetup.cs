@@ -4,8 +4,6 @@ using UnityEngine.XR.Management;
 
 public class VRSetup : MonoBehaviour
 {
-    private BasicSpawner bs;
-
     [SerializeField] GameObject VRPlayer;
     [SerializeField] GameObject VRCanvas;
 
@@ -13,7 +11,6 @@ public class VRSetup : MonoBehaviour
 
     private void Awake()
     {
-        bs = GetComponent<BasicSpawner>();
         StartCoroutine("StartXRCoroutine");
     }
 
@@ -30,9 +27,8 @@ public class VRSetup : MonoBehaviour
         else
         {
             Debug.Log("Starting XR...");
-            bs.isVR = true;
-            Instantiate(VRPlayer);
-            Instantiate(VRCanvas);
+            //Instantiate(VRPlayer);
+            //Instantiate(VRCanvas);
             Destroy(GameObject.Find("Main Camera"));
             XRGeneralSettings.Instance.Manager.StartSubsystems();
         }
