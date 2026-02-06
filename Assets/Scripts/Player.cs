@@ -14,29 +14,32 @@ public class Player : NetworkBehaviour
 
     private void Awake()
     {
-        if (XRGeneralSettings.Instance.Manager.activeLoader == null)
+        if (HasInputAuthority)
         {
-            Instantiate(PC, transform);
-        }
-        else
-        {
-            Instantiate(VR, transform);
-            VRCanvas = GameObject.Find("XR Canvas").transform.GetChild(0).gameObject;
-            VRCanvas.SetActive(true);
-        }
-        _cc = GetComponent<NetworkCharacterController>();
+            if (XRGeneralSettings.Instance.Manager.activeLoader == null)
+            {
+                Instantiate(PC, transform);
+            }
+            else
+            {
+                Instantiate(VR, transform);
+                VRCanvas = GameObject.Find("XR Canvas").transform.GetChild(0).gameObject;
+                VRCanvas.SetActive(true);
+            }
+            _cc = GetComponent<NetworkCharacterController>();
 
-        if (VRCanvas != null)
-        {
-            GameObject btn = VRCanvas.transform.GetChild(2).gameObject;
-            Button Send = btn.GetComponent<Button>();
-            Send.onClick.AddListener(delegate { SendMsg(); });
+            if (VRCanvas != null)
+            {
+                GameObject btn = VRCanvas.transform.GetChild(2).gameObject;
+                Button Send = btn.GetComponent<Button>();
+                Send.onClick.AddListener(delegate { SendMsg(); });
+            }
         }
     }
 
     public override void FixedUpdateNetwork()
     {
-        if (Object.HasInputAuthority)
+        if (HasInputAuthority)
         {
             if (GetInput(out NetworkInputData data))
             {
@@ -48,7 +51,7 @@ public class Player : NetworkBehaviour
 
     private void Update()
     {
-        if (Object.HasInputAuthority && Keyboard.current.digit1Key.wasPressedThisFrame)
+        if (HasInputAuthority && Keyboard.current.digit1Key.wasPressedThisFrame)
         {
             RPC_SendMessage("Hey Mate!");
         }
@@ -83,6 +86,6 @@ public class Player : NetworkBehaviour
 
     public void SendMsg()
     {
-        if (Object.HasInputAuthority) RPC_SendMessage("Tally Ho!");
+        if (HasInputAuthority) RPC_SendMessage("Tally Ho!");
     }
 }
