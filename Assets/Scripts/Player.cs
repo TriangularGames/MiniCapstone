@@ -47,6 +47,14 @@ public class Player : NetworkBehaviour
         }
     }
 
+    public override void Render()
+    {
+        if (!Object.HasInputAuthority)
+        {
+            transform.position = transform.position;
+        }
+    }
+
     private void Update()
     {
         if (HasInputAuthority && Keyboard.current.digit1Key.wasPressedThisFrame)
