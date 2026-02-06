@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 38187012}
   - component: {fileID: 38187011}
+  - component: {fileID: 38187013}
   m_Layer: 0
   m_Name: XR Interaction Manager
   m_TagString: Untagged
@@ -165,6 +166,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &38187013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38187010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5f99bdf96a03c41bb438d72b559812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VRSetup
+  VRPlayer: {fileID: 3070051288026538169, guid: de410f5c554d3504e875fa8478f0e0b6, type: 3}
+  VRCanvas: {fileID: 6583794683224072333, guid: b567fdd69d2f1954e917fcb5612a220d, type: 3}
+  PCCanvas: {fileID: 3286326966180852423, guid: 346392e4619f18f488c0ac27ea058080, type: 3}
 --- !u!1 &344832436
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +191,6 @@ GameObject:
   m_Component:
   - component: {fileID: 344832438}
   - component: {fileID: 344832437}
-  - component: {fileID: 344832439}
   m_Layer: 0
   m_Name: BasicSpawner
   m_TagString: Untagged
@@ -199,7 +214,6 @@ MonoBehaviour:
     RawGuidValue: 4e423cf040eac374d89850e4e35b61c3
   _VRplayerPrefab:
     RawGuidValue: de410f5c554d3504e875fa8478f0e0b6
-  isVR: 0
 --- !u!4 &344832438
 Transform:
   m_ObjectHideFlags: 0
@@ -215,21 +229,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &344832439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344832436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da5f99bdf96a03c41bb438d72b559812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VRSetup
-  VRPlayer: {fileID: 3070051288026538169, guid: de410f5c554d3504e875fa8478f0e0b6, type: 3}
-  VRCanvas: {fileID: 6583794683224072333, guid: b567fdd69d2f1954e917fcb5612a220d, type: 3}
-  PCCanvas: {fileID: 3286326966180852423, guid: 346392e4619f18f488c0ac27ea058080, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
