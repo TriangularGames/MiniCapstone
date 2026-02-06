@@ -1,13 +1,21 @@
 using Fusion;
 using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Management;
 
 public class Player : NetworkBehaviour
 {
     private NetworkCharacterController _cc;
+    public GameObject PC;
+    public GameObject VR;
 
     private void Awake()
     {
+        if (XRGeneralSettings.Instance.Manager.activeLoader == null)
+        {
+            Instantiate(PC, transform);
+        }
         _cc = GetComponent<NetworkCharacterController>();
     }
 
