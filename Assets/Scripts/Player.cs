@@ -14,34 +14,31 @@ public class Player : NetworkBehaviour
 
     private void Awake()
     {
-        if (Object.HasStateAuthority)
+        if (XRGeneralSettings.Instance.Manager.activeLoader == null)
         {
-            if (XRGeneralSettings.Instance.Manager.activeLoader == null)
-            {
-                Instantiate(PC, transform);
-            }
-            else
-            {
-                Instantiate(VR, transform);
-                VRCanvas = GameObject.Find("XR Canvas").transform.GetChild(0).gameObject;
-                VRCanvas.SetActive(true);
-            }
-            _cc = GetComponent<NetworkCharacterController>();
+            Instantiate(PC, transform);
+        }
+        else
+        {
+            Instantiate(VR, transform);
+            VRCanvas = GameObject.Find("XR Canvas").transform.GetChild(0).gameObject;
+            VRCanvas.SetActive(true);
+        }
+        _cc = GetComponent<NetworkCharacterController>();
 
-            if (VRCanvas != null)
-            {
-                GameObject btn = VRCanvas.transform.GetChild(2).gameObject;
-                Button Send = btn.GetComponent<Button>();
-                Send.onClick.AddListener(delegate { SendMsg(); });
-            }
+        if (VRCanvas != null)
+        {
+            GameObject btn = VRCanvas.transform.GetChild(2).gameObject;
+            Button Send = btn.GetComponent<Button>();
+            Send.onClick.AddListener(delegate { SendMsg(); });
         }
     }
 
     public override void FixedUpdateNetwork()
     {
-        if (GetInput(out NetworkInputData data))
+        if (Object.HasInputAuthority)
         {
-            if (Object.HasInputAuthority)
+            if (GetInput(out NetworkInputData data))
             {
                 data.direction.Normalize();
                 _cc.Move(5 * data.direction * Runner.DeltaTime);
