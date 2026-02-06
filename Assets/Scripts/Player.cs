@@ -16,6 +16,10 @@ public class Player : NetworkBehaviour
         {
             Instantiate(PC, transform);
         }
+        else
+        {
+            Instantiate(VR, transform);
+        }
         _cc = GetComponent<NetworkCharacterController>();
     }
 

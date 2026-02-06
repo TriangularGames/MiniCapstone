@@ -2,12 +2,9 @@ using Fusion;
 using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR.Management;
 
 public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
@@ -133,7 +130,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             StartGame(GameMode.Host);
             Destroy(GameObject.Find("LobbyMenu"));
-            GameObject.Find("Scroll UI Sample").SetActive(true);
+            Destroy(GameObject.Find("VRPlayer"));
 
         }
     }
@@ -144,7 +141,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             StartGame(GameMode.Client);
             Destroy(GameObject.Find("LobbyMenu"));
-            GameObject.Find("Scroll UI Sample").SetActive(true);
+            Destroy(GameObject.Find("VRPlayer"));
         }
     }
 }
