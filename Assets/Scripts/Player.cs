@@ -14,26 +14,24 @@ public class Player : NetworkBehaviour
 
     private void Awake()
     {
-        if (HasInputAuthority)
-        {
-            if (XRGeneralSettings.Instance.Manager.activeLoader == null)
-            {
-                Instantiate(PC, transform);
-            }
-            else
-            {
-                Instantiate(VR, transform);
-                VRCanvas = GameObject.Find("XR Canvas").transform.GetChild(0).gameObject;
-                VRCanvas.SetActive(true);
-            }
-            _cc = GetComponent<NetworkCharacterController>();
+        _cc = GetComponent<NetworkCharacterController>();
 
-            if (VRCanvas != null)
-            {
-                GameObject btn = VRCanvas.transform.GetChild(2).gameObject;
-                Button Send = btn.GetComponent<Button>();
-                Send.onClick.AddListener(delegate { SendMsg(); });
-            }
+        if (XRGeneralSettings.Instance.Manager.activeLoader == null)
+        {
+            Instantiate(PC, transform);
+        }
+        else
+        {
+            Instantiate(VR, transform);
+            VRCanvas = GameObject.Find("XR Canvas").transform.GetChild(0).gameObject;
+            VRCanvas.SetActive(true);
+        }
+
+        if (VRCanvas != null)
+        {
+            GameObject btn = VRCanvas.transform.GetChild(2).gameObject;
+            Button Send = btn.GetComponent<Button>();
+            Send.onClick.AddListener(delegate { SendMsg(); });
         }
     }
 
