@@ -3248,6 +3248,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 38187011}
+    - target: {fileID: 4131098680796335715, guid: de410f5c554d3504e875fa8478f0e0b6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6006376395778484786, guid: de410f5c554d3504e875fa8478f0e0b6, type: 3}
       propertyPath: m_PositionInput.m_Reference
       value: 
