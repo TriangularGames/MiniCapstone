@@ -133,7 +133,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 
     private void OnGUI()
     {
-        if (_runner == null)
+        if (_runner == null && !isVR)
         {
             if (GUI.Button(new Rect(0, 0, 200, 40), "Host"))
             {
@@ -146,15 +146,13 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
-    [SerializeField] private GameObject XRMenu;
-    [SerializeField] private GameObject SetupVR;
     public void Host()
     {
         if (_runner == null)
         {
             StartGame(GameMode.Host);
-            Destroy(XRMenu);
-            Destroy(SetupVR);
+            Destroy(GameObject.Find("LobbyMenu"));
+            Destroy(GameObject.Find("VRPlayer"));
 
         }
     }
@@ -164,8 +162,8 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         if (_runner == null)
         {
             StartGame(GameMode.Client);
-            Destroy(XRMenu);
-            Destroy(SetupVR);
+            Destroy(GameObject.Find("LobbyMenu"));
+            Destroy(GameObject.Find("VRPlayer"));
         }
     }
 }
