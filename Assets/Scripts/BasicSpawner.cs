@@ -7,6 +7,7 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Management;
 
 public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
@@ -27,10 +28,11 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
         bool isVR = false;
-        if (GameObject.Find("XR Interaction Manager"))
+        if (XRGeneralSettings.Instance.Manager.activeLoader != null)
         {
             isVR = true;
         }
+
         if (runner.IsServer)
         {
             // Create a unique position for the player
