@@ -1,6 +1,5 @@
 using Fusion;
 using TMPro;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -67,10 +66,12 @@ public class Player : NetworkBehaviour
         if (messageSource == Runner.LocalPlayer)
         {
             message = $"You said: {message}\n";
+            Debug.Log(message);
         }
         else
         {
             message = $"Some other player said: {message}\n";
+            Debug.Log(message);
         }
 
         _messages.text += message;
