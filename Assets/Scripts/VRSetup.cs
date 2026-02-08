@@ -9,8 +9,14 @@ public class VRSetup : MonoBehaviour
 
     [SerializeField] GameObject PCCanvas;
 
+    private Vector3 defaultPos = new Vector3(0, -1, 5);
+
     private void Awake()
     {
+        if (XRGeneralSettings.Instance.Manager.activeLoader != null)
+        {
+            StopXR();
+        }
         StartCoroutine("StartXRCoroutine");
     }
 
@@ -23,15 +29,15 @@ public class VRSetup : MonoBehaviour
         {
             Debug.Log("No XR Detected");
             Instantiate(PCCanvas);
-            Destroy(GameObject.Find("VRCanvas"));
-            Destroy(GameObject.Find("VRPlayer"));
+            //Destroy(GameObject.Find("VRCanvas"));
+            //Destroy(GameObject.Find("VRPlayer"));
             Destroy(GameObject.Find("XR Interaction Manager"));
         }
         else
         {
             Debug.Log("Starting XR...");
-            //Instantiate(VRPlayer);
-            //Instantiate(VRCanvas);
+            Instantiate(VRPlayer, defaultPos, Quaternion.identity);
+            Instantiate(VRCanvas, defaultPos, Quaternion.identity);
             Destroy(GameObject.Find("Main Camera"));
             XRGeneralSettings.Instance.Manager.StartSubsystems();
         }
