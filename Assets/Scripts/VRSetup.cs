@@ -29,15 +29,14 @@ public class VRSetup : MonoBehaviour
         {
             Debug.Log("No XR Detected");
             Instantiate(PCCanvas);
-            //Destroy(GameObject.Find("VRCanvas"));
-            //Destroy(GameObject.Find("VRPlayer"));
+            Destroy(GameObject.Find("VRCanvas"));
+            Destroy(GameObject.Find("VRPlayer"));
             Destroy(GameObject.Find("XR Interaction Manager"));
         }
         else
         {
             Debug.Log("Starting XR...");
             Instantiate(VRPlayer, defaultPos, Quaternion.identity);
-            Instantiate(VRCanvas, defaultPos, Quaternion.identity);
             Destroy(GameObject.Find("Main Camera"));
             XRGeneralSettings.Instance.Manager.StartSubsystems();
         }
