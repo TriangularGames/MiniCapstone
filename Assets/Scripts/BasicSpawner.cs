@@ -109,7 +109,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             StartGame(GameMode.Host);
             Destroy(GameObject.Find("LobbyMenu"));
-            Destroy(GameObject.Find("VRPlayer"));
+            Destroy(GameObject.FindGameObjectWithTag("VRPlayer"));
 
         }
     }
@@ -120,7 +120,7 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             StartGame(GameMode.Client);
             Destroy(GameObject.Find("LobbyMenu"));
-            Destroy(GameObject.Find("VRPlayer"));
+            Destroy(GameObject.FindGameObjectWithTag("VRPlayer"));
         }
     }
 }
