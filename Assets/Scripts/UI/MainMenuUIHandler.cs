@@ -34,14 +34,14 @@ public class MainMenuUIHandler : MonoBehaviour
         sessionBrowserPanel.SetActive(false);
     }
 
-    public async void OnFindGameClicked()
+    public void OnFindGameClicked()
     {
         PlayerPrefs.SetString("PlayerNickname", playerNameInputField.text);
         PlayerPrefs.Save();
 
         ConnectionManager connectionManager = FindFirstObjectByType<ConnectionManager>();
 
-        if (true) await connectionManager.Connect();
+        connectionManager.OnJoinLobby();
 
         HideAllPanels();
 

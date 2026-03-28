@@ -187,7 +187,30 @@ namespace Fusion.Addons.ConnectionManagerAddon
             }
         }
 
-#region Player spawn
+        public void OnJoinLobby()
+        {
+            var clientTask = JoinLobby();
+        }
+
+        private async Task JoinLobby()
+        {
+            Debug.Log("JoinLobby started");
+
+            string lobbyID = "OurLobbyID";
+
+            var result = await runner.JoinSessionLobby(SessionLobby.Custom, lobbyID);
+
+            if (!result.Ok)
+            {
+                Debug.LogError($"Unable to join lobby {lobbyID}");
+            }
+            else
+            {
+                Debug.Log("JoinLobby ok");
+            }
+        }
+
+        #region Player spawn
         public void OnPlayerJoinedSharedMode(NetworkRunner runner, PlayerRef player)
         {
             if (player == runner.LocalPlayer && userPrefab != null)
