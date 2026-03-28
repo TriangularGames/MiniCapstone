@@ -55,6 +55,8 @@ namespace Fusion.Addons.ConnectionManagerAddon
         [Header("Local user spawner")]
         public NetworkObject userPrefab;
 
+        SessionListUIHandler sessionListUIHandler;
+
 #region IUserSpawner
         public NetworkObject UserPrefab { 
             get => userPrefab;
@@ -82,6 +84,8 @@ namespace Fusion.Addons.ConnectionManagerAddon
             // Create the Fusion runner and let it know that we will be providing user input
             if (runner == null) runner = gameObject.AddComponent<NetworkRunner>();
             runner.ProvideInput = true;
+
+            sessionListUIHandler = FindFirstObjectByType<SessionListUIHandler>();
         }
 
         private void Start()
@@ -267,6 +271,29 @@ namespace Fusion.Addons.ConnectionManagerAddon
                 OnPlayerLeftHostMode(runner, player);
             }
         }
+        public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
+        {
+            if (sessionListUIHandler == null)
+                return;
+
+            if (sessionList.Count == 0)
+            {
+                Debug.Log("Joined lobby no sessions found");
+
+                sessionListUIHandler.OnNoSessionsFound();
+            }
+            else
+            {
+                sessionListUIHandler.ClearList();
+
+                foreach (SessionInfo sessionInfo in sessionList)
+                {
+                    sessionListUIHandler.AddToList(sessionInfo);
+
+                    Debug.Log($"Found session {sessionInfo.Name} playerCount {sessionInfo.PlayerCount}");
+                }
+            }
+        }
 #endregion
 
 #region INetworkRunnerCallbacks (debug log only)
@@ -292,7 +319,6 @@ namespace Fusion.Addons.ConnectionManagerAddon
         public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
         public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
         public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { }
-        public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
         public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data) { }
         public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken) { }
         public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey reliableKey, ArraySegment<byte> data){}
