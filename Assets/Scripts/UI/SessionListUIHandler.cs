@@ -45,7 +45,7 @@ public class SessionListUIHandler : MonoBehaviour
     {
         ConnectionManager connectionManager = FindFirstObjectByType<ConnectionManager>();
 
-        if (true) await connectionManager.Connect();
+        if (true) await connectionManager.Connect(sessionInfo);
 
         MainMenuUIHandler mainMenuUIHandler = FindFirstObjectByType<MainMenuUIHandler>();
         mainMenuUIHandler.OnJoiningServer();

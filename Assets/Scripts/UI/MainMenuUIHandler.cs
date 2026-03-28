@@ -62,7 +62,7 @@ public class MainMenuUIHandler : MonoBehaviour
     {
         ConnectionManager connectionManager = FindFirstObjectByType<ConnectionManager>();
 
-        if (true) await connectionManager.Connect();
+        if (true) await connectionManager.Connect(sessionNameInputField.text);
 
         HideAllPanels();
 

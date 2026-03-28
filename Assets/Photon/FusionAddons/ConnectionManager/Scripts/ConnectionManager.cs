@@ -148,7 +148,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             return sceneInfo;
         }
 
-        public async Task Connect()
+        public async Task Connect(SessionInfo info)
         {
             // Create the scene manager if it does not exist
             if (sceneManager == null) sceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>();
@@ -164,7 +164,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             // Connection criteria
             if (ShouldConnectWithRoomName)
             {
-                args.SessionName = roomName;
+                args.SessionName = info.Name;
             }
             if (ShouldConnectWithSessionProperties)
             {
@@ -173,7 +173,50 @@ namespace Fusion.Addons.ConnectionManagerAddon
             // Room details
             if (playerCount > 0)
             {
-                args.PlayerCount = playerCount;
+                args.PlayerCount = info.PlayerCount;
+            }
+
+            await runner.StartGame(args);
+
+            string prop = "";
+            if (runner.SessionInfo.Properties != null && runner.SessionInfo.Properties.Count > 0)
+            {
+                prop = "SessionProperties: ";
+                foreach (var p in runner.SessionInfo.Properties) prop += $" ({p.Key}={p.Value.PropertyValue}) ";
+            }
+            Debug.Log($"Session info: Room name {runner.SessionInfo.Name}. Region: {runner.SessionInfo.Region}. {prop}");
+            if ((connectionCriterias & ConnectionManager.ConnectionCriterias.RoomName) == 0)
+            {
+                roomName = runner.SessionInfo.Name;
+            }
+        }
+
+        public async Task Connect(string sessionName)
+        {
+            // Create the scene manager if it does not exist
+            if (sceneManager == null) sceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>();
+            if (onWillConnect != null) onWillConnect.Invoke();
+
+            // Start or join (depends on gamemode) a session with a specific name
+            var args = new StartGameArgs()
+            {
+                GameMode = gameMode,
+                Scene = CurrentSceneInfo(),
+                SceneManager = sceneManager
+            };
+            // Connection criteria
+            if (ShouldConnectWithRoomName)
+            {
+                args.SessionName = sessionName;
+            }
+            if (ShouldConnectWithSessionProperties)
+            {
+                args.SessionProperties = AllConnectionSessionProperties;
+            }
+            // Room details
+            if (playerCount > 0)
+            {
+                args.PlayerCount = 0;
             }
 
             await runner.StartGame(args);
