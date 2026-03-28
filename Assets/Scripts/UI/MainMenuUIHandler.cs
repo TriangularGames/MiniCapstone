@@ -31,7 +31,9 @@ public class MainMenuUIHandler : MonoBehaviour
     {
         BG.SetActive(false);
         playerDetailsPanel.SetActive(false);
+        createSessionPanel.SetActive(false);
         sessionBrowserPanel.SetActive(false);
+        statusPanel.SetActive(false);
     }
 
     public void OnFindGameClicked()
