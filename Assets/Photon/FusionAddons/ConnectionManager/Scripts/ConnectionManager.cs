@@ -37,7 +37,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
         [Header("Room configuration")]
         public GameMode gameMode = GameMode.Shared;
         public string roomName = "SampleFusion";
-        public bool connectOnStart = true;
+        public bool connectOnStart = false;
         [Tooltip("Set it to 0 to use the DefaultPlayers value, from the Global NetworkProjectConfig (simulation section)")]
         public int playerCount = 0;
 
@@ -92,7 +92,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
                 runner.AddCallbacks(this);
             }
             // Launch the connection at start
-            if (connectOnStart) await Connect();
+            //if (connectOnStart) await Connect();
         }
 
         Dictionary<string, SessionProperty> AllConnectionSessionProperties
