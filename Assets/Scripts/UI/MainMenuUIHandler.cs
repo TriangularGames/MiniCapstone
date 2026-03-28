@@ -28,17 +28,14 @@ public class MainMenuUIHandler : MonoBehaviour
 
     void HideAllPanels()
     {
+        playerDetailsPanel.SetActive(false);
         sessionBrowserPanel.SetActive(false);
-        statusPanel.SetActive(false);
-        createSessionPanel.SetActive(false);
     }
 
     public async void OnFindGameClicked()
     {
         PlayerPrefs.SetString("PlayerNickname", playerNameInputField.text);
         PlayerPrefs.Save();
-
-        //GameManager.instance.playerNickName = playerNameInputField.text;
 
         ConnectionManager connectionManager = FindFirstObjectByType<ConnectionManager>();
 
@@ -47,7 +44,7 @@ public class MainMenuUIHandler : MonoBehaviour
         HideAllPanels();
 
         sessionBrowserPanel.gameObject.SetActive(true);
-        FindObjectOfType<SessionListUIHandler>(true).OnLookingForGameSessions();
+        FindFirstObjectByType<SessionListUIHandler>().OnLookingForGameSessions();
     }
 
     public void OnCreateNewGameClicked()

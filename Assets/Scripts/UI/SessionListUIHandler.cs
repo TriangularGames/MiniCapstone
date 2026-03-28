@@ -47,8 +47,8 @@ public class SessionListUIHandler : MonoBehaviour
 
         if (true) await connectionManager.Connect();
 
-        //MainMenuUIHandler mainMenuUIHandler = FindFirstObjectByType<MainMenuUIHandler>();
-        //mainMenuUIHandler.OnJoiningServer();
+        MainMenuUIHandler mainMenuUIHandler = FindFirstObjectByType<MainMenuUIHandler>();
+        mainMenuUIHandler.OnJoiningServer();
     }
 
     public void OnNoSessionsFound()

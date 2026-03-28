@@ -84,7 +84,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             runner.ProvideInput = true;
         }
 
-        private async void Start()
+        private void Start()
         {
             if (runner && new List<NetworkRunner>(GetComponentsInParent<NetworkRunner>()).Contains(runner) == false)
             {
