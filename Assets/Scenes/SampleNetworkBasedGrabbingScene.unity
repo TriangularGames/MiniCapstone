@@ -6476,6 +6476,7 @@ MonoBehaviour:
   sessionBrowserPanel: {fileID: 643684135}
   createSessionPanel: {fileID: 0}
   statusPanel: {fileID: 1232839204}
+  BG: {fileID: 1289019591}
   playerNameInputField: {fileID: 676413831}
   sessionNameInputField: {fileID: 0}
 --- !u!1 &2016248969

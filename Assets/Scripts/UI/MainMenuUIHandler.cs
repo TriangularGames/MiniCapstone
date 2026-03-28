@@ -12,6 +12,7 @@ public class MainMenuUIHandler : MonoBehaviour
     public GameObject sessionBrowserPanel;
     public GameObject createSessionPanel;
     public GameObject statusPanel;
+    public GameObject BG;
 
     [Header("Player settings")]
     public TMP_InputField playerNameInputField;
@@ -28,6 +29,7 @@ public class MainMenuUIHandler : MonoBehaviour
 
     void HideAllPanels()
     {
+        BG.SetActive(false);
         playerDetailsPanel.SetActive(false);
         sessionBrowserPanel.SetActive(false);
     }
