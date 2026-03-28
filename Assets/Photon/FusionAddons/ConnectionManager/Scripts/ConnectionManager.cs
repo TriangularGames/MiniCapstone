@@ -55,7 +55,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
         [Header("Local user spawner")]
         public NetworkObject userPrefab;
 
-        SessionListUIHandler sessionListUIHandler;
+        public SessionListUIHandler sessionListUIHandler;
 
 #region IUserSpawner
         public NetworkObject UserPrefab { 
@@ -85,7 +85,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             if (runner == null) runner = gameObject.AddComponent<NetworkRunner>();
             runner.ProvideInput = true;
 
-            sessionListUIHandler = FindFirstObjectByType<SessionListUIHandler>();
+            sessionListUIHandler = GameObject.FindGameObjectWithTag("Session").GetComponent<SessionListUIHandler>();
         }
 
         private void Start()
@@ -257,7 +257,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             }
         }
 
-        #region Player spawn
+#region Player spawn
         public void OnPlayerJoinedSharedMode(NetworkRunner runner, PlayerRef player)
         {
             if (player == runner.LocalPlayer && userPrefab != null)

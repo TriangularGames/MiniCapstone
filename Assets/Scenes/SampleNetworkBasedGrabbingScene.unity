@@ -1517,7 +1517,7 @@ GameObject:
   - component: {fileID: 643684137}
   m_Layer: 5
   m_Name: Session List Panel
-  m_TagString: Untagged
+  m_TagString: Session
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1536,7 +1536,6 @@ RectTransform:
   m_Children:
   - {fileID: 300195315}
   - {fileID: 103775487}
-  - {fileID: 1232839207}
   - {fileID: 1597515770}
   - {fileID: 455883083}
   - {fileID: 729367269}
@@ -2555,6 +2554,7 @@ MonoBehaviour:
   additionalSessionProperties: []
   runner: {fileID: 0}
   userPrefab: {fileID: 4645078151347934457, guid: 0ac3ef29ecc128d4ba74dc484e39b08c, type: 3}
+  sessionListUIHandler: {fileID: 643684137}
   onWillConnect:
     m_PersistentCalls:
       m_Calls: []
@@ -4033,12 +4033,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1405511979}
-  m_Father: {fileID: 643684136}
+  m_Father: {fileID: 2011450147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 303.62207, y: 171.4902}
+  m_SizeDelta: {x: 227.71655, y: -0.000030517578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1289019591
 GameObject:
@@ -7249,6 +7249,7 @@ RectTransform:
   - {fileID: 148383201}
   - {fileID: 2084478417}
   - {fileID: 643684136}
+  - {fileID: 1232839207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
