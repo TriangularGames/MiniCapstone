@@ -37,7 +37,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
         [Header("Room configuration")]
         public GameMode gameMode = GameMode.Shared;
         public string roomName = "SampleFusion";
-        public bool connectOnStart = true;
+        public bool connectOnStart = false;
         [Tooltip("Set it to 0 to use the DefaultPlayers value, from the Global NetworkProjectConfig (simulation section)")]
         public int playerCount = 0;
 
@@ -54,6 +54,8 @@ namespace Fusion.Addons.ConnectionManagerAddon
 
         [Header("Local user spawner")]
         public NetworkObject userPrefab;
+
+        public SessionListUIHandler sessionListUIHandler;
 
 #region IUserSpawner
         public NetworkObject UserPrefab { 
@@ -82,9 +84,11 @@ namespace Fusion.Addons.ConnectionManagerAddon
             // Create the Fusion runner and let it know that we will be providing user input
             if (runner == null) runner = gameObject.AddComponent<NetworkRunner>();
             runner.ProvideInput = true;
+
+            sessionListUIHandler = GameObject.FindGameObjectWithTag("Session").GetComponent<SessionListUIHandler>();
         }
 
-        private async void Start()
+        private void Start()
         {
             if (runner && new List<NetworkRunner>(GetComponentsInParent<NetworkRunner>()).Contains(runner) == false)
             {
@@ -92,7 +96,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
                 runner.AddCallbacks(this);
             }
             // Launch the connection at start
-            if (connectOnStart) await Connect();
+            //if (connectOnStart) await Connect();
         }
 
         Dictionary<string, SessionProperty> AllConnectionSessionProperties
@@ -144,7 +148,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             return sceneInfo;
         }
 
-        public async Task Connect()
+        public async Task Connect(SessionInfo info)
         {
             // Create the scene manager if it does not exist
             if (sceneManager == null) sceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>();
@@ -160,7 +164,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             // Connection criteria
             if (ShouldConnectWithRoomName)
             {
-                args.SessionName = roomName;
+                args.SessionName = info.Name;
             }
             if (ShouldConnectWithSessionProperties)
             {
@@ -169,7 +173,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             // Room details
             if (playerCount > 0)
             {
-                args.PlayerCount = playerCount;
+                args.PlayerCount = info.PlayerCount;
             }
 
             await runner.StartGame(args);
@@ -184,6 +188,72 @@ namespace Fusion.Addons.ConnectionManagerAddon
             if ((connectionCriterias & ConnectionManager.ConnectionCriterias.RoomName) == 0)
             {
                 roomName = runner.SessionInfo.Name;
+            }
+        }
+
+        public async Task Connect(string sessionName)
+        {
+            // Create the scene manager if it does not exist
+            if (sceneManager == null) sceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>();
+            if (onWillConnect != null) onWillConnect.Invoke();
+
+            // Start or join (depends on gamemode) a session with a specific name
+            var args = new StartGameArgs()
+            {
+                GameMode = gameMode,
+                Scene = CurrentSceneInfo(),
+                SceneManager = sceneManager
+            };
+            // Connection criteria
+            if (ShouldConnectWithRoomName)
+            {
+                args.SessionName = sessionName;
+            }
+            if (ShouldConnectWithSessionProperties)
+            {
+                args.SessionProperties = AllConnectionSessionProperties;
+            }
+            // Room details
+            if (playerCount > 0)
+            {
+                args.PlayerCount = 0;
+            }
+
+            await runner.StartGame(args);
+
+            string prop = "";
+            if (runner.SessionInfo.Properties != null && runner.SessionInfo.Properties.Count > 0)
+            {
+                prop = "SessionProperties: ";
+                foreach (var p in runner.SessionInfo.Properties) prop += $" ({p.Key}={p.Value.PropertyValue}) ";
+            }
+            Debug.Log($"Session info: Room name {runner.SessionInfo.Name}. Region: {runner.SessionInfo.Region}. {prop}");
+            if ((connectionCriterias & ConnectionManager.ConnectionCriterias.RoomName) == 0)
+            {
+                roomName = runner.SessionInfo.Name;
+            }
+        }
+
+        public void OnJoinLobby()
+        {
+            var clientTask = JoinLobby();
+        }
+
+        private async Task JoinLobby()
+        {
+            Debug.Log("JoinLobby started");
+
+            string lobbyID = "OurLobbyID";
+
+            var result = await runner.JoinSessionLobby(SessionLobby.Custom, lobbyID);
+
+            if (!result.Ok)
+            {
+                Debug.LogError($"Unable to join lobby {lobbyID}");
+            }
+            else
+            {
+                Debug.Log("JoinLobby ok");
             }
         }
 
@@ -244,6 +314,29 @@ namespace Fusion.Addons.ConnectionManagerAddon
                 OnPlayerLeftHostMode(runner, player);
             }
         }
+        public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
+        {
+            if (sessionListUIHandler == null)
+                return;
+
+            if (sessionList.Count == 0)
+            {
+                Debug.Log("Joined lobby no sessions found");
+
+                sessionListUIHandler.OnNoSessionsFound();
+            }
+            else
+            {
+                sessionListUIHandler.ClearList();
+
+                foreach (SessionInfo sessionInfo in sessionList)
+                {
+                    sessionListUIHandler.AddToList(sessionInfo);
+
+                    Debug.Log($"Found session {sessionInfo.Name} playerCount {sessionInfo.PlayerCount}");
+                }
+            }
+        }
 #endregion
 
 #region INetworkRunnerCallbacks (debug log only)
@@ -269,7 +362,6 @@ namespace Fusion.Addons.ConnectionManagerAddon
         public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
         public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
         public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { }
-        public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
         public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data) { }
         public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken) { }
         public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey reliableKey, ArraySegment<byte> data){}

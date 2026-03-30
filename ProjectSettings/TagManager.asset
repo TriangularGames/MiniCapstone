@@ -7,6 +7,7 @@ TagManager:
   - VRPlayer
   - VRSend
   - Chat
+  - Session
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - InvisibleForLocalPlayer
   - 
-  - 
+  - Player
   - 
   - 
   - 
