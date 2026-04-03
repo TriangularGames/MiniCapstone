@@ -8,6 +8,7 @@ TagManager:
   - VRSend
   - Chat
   - Session
+  - Food
   layers:
   - Default
   - TransparentFX
