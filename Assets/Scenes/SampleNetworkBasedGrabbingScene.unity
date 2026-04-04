@@ -1079,7 +1079,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserTomato
+      value: FoodDispenserLemon
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -1088,10 +1088,10 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 2484230568608154062, guid: d47b0b4c8a6477e4390be596fef6290b, type: 3}
+      objectReference: {fileID: 1041429347244905490, guid: 48a543e0bab8b4f479a57cf5499f1b9c, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.29
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1245,7 +1245,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserOnion
+      value: FoodDispenserPotato
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 6221474460549518549, guid: e3f6f833344144b4688a353b34c794c9, type: 3}
+      objectReference: {fileID: 7440594735913648083, guid: 2ddf1b5596491fe4c98d26f9599b64a6, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.09
@@ -1365,6 +1365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawningArchP2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 625d25eee350c144faf2c653d34a4c6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1397,6 +1401,7 @@ MonoBehaviour:
   - {fileID: 8828389237301272721, guid: c2384795adb21224184ef8f77c887c68, type: 3}
   spawnTimer: 10
   maxEnemies: 3
+  activeEnemies: 0
 --- !u!1 &345675169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,6 +3047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawningArchP1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 625d25eee350c144faf2c653d34a4c6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3074,6 +3083,7 @@ MonoBehaviour:
   - {fileID: 8828389237301272721, guid: c2384795adb21224184ef8f77c887c68, type: 3}
   spawnTimer: 10
   maxEnemies: 3
+  activeEnemies: 0
 --- !u!1001 &791812489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4076,7 +4086,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserPotato
+      value: FoodDispenserEgg
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -4085,7 +4095,7 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 7440594735913648083, guid: 2ddf1b5596491fe4c98d26f9599b64a6, type: 3}
+      objectReference: {fileID: 6884148209457751741, guid: 851f2882d35b055488e640bd2a4ee3b1, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.09
@@ -5750,6 +5760,7 @@ MonoBehaviour:
   time: 0
   fill: {fileID: 385456367}
   max: 0
+  Type: Cutting
 --- !u!65 &1447125141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6676,6 +6687,152 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1634170869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634170872}
+  - component: {fileID: 1634170871}
+  - component: {fileID: 1634170870}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1634170870
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634170869}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8092749702037204187, guid: 2a35beb632ace0846b2978e70c44252f, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1634170871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634170869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8317c09f007e394992aaabd3938c061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  audioSource: {fileID: 1634170870}
+  audioClips:
+  - {fileID: 8300000, guid: bb82bfaabc04ff04489a18331254994c, type: 3}
+  - {fileID: 8300000, guid: 78fd6992a26b58c41802b91f53cd99cc, type: 3}
+--- !u!4 &1634170872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634170869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.09594, y: 0.5484, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637983597
 GameObject:
   m_ObjectHideFlags: 0
@@ -7744,6 +7901,7 @@ MonoBehaviour:
   time: 0
   fill: {fileID: 1865297598}
   max: 0
+  Type: Stove
 --- !u!1001 &1923132916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8673,7 +8831,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserSteak
+      value: FoodDispenserTomato
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -8682,10 +8840,10 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 910611288271320775, guid: 3df80c9c6355d8c48a1f1a8aafd291f5, type: 3}
+      objectReference: {fileID: 2484230568608154062, guid: d47b0b4c8a6477e4390be596fef6290b, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.29
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8930,3 +9088,4 @@ SceneRoots:
   - {fileID: 180733561}
   - {fileID: 757287668}
   - {fileID: 1923132916}
+  - {fileID: 1634170872}
