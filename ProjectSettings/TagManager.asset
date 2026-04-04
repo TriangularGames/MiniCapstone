@@ -9,6 +9,8 @@ TagManager:
   - Chat
   - Session
   - Food
+  - Stove
+  - Cutting
   layers:
   - Default
   - TransparentFX
