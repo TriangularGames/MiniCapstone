@@ -122,6 +122,7 @@ MonoBehaviour:
   - rid: 2712864706380169497
   - rid: 2712864706380169507
   - rid: 2712864706380169508
+  - rid: 2712864730653392941
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -152,6 +153,14 @@ MonoBehaviour:
           m_Value1: 8552482580233756208
         Name: EnemyAI
         m_Value: {fileID: 2295165757810982847}
+    - rid: 2712864730653392941
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3040111735649063367
+          m_Value1: 8132943040584430916
+        Name: Spawner
+        m_Value: {fileID: 0}
 --- !u!1 &7039886727249400360 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6815658631713412807, guid: b86f17e0c42566e4ab83a10ed2628fce, type: 3}

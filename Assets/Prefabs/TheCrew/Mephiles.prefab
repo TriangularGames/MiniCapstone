@@ -2502,6 +2502,7 @@ MonoBehaviour:
   - rid: 2712864706380169550
   - rid: 2712864706380169551
   - rid: 2712864706380169552
+  - rid: 2712864730653392942
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -2531,6 +2532,14 @@ MonoBehaviour:
           m_Value0: 15172646512484131381
           m_Value1: 17164177644461414329
         Name: Waypoints
+        m_Value: {fileID: 0}
+    - rid: 2712864730653392942
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3040111735649063367
+          m_Value1: 8132943040584430916
+        Name: Spawner
         m_Value: {fileID: 0}
 --- !u!1 &7469720116057960049
 GameObject:

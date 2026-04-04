@@ -14,12 +14,15 @@ public partial class MoveToCounterAction : Action
     [SerializeReference] public BlackboardVariable<NavMeshAgent> Moves;
     [SerializeReference] public BlackboardVariable<Transform> Waypoint;
 
-    private static List<Transform> WaypointTaken = new List<Transform>();
+    public static List<Transform> WaypointTaken = new List<Transform>();
     private Transform wayTarg = null;
     private float walkLess = Mathf.Infinity;
     private Transform close = null;
+
     protected override Status OnStart()
     {
+        GameObject waypnt = GameObject.FindWithTag("Waypoints");
+        Waypoint.Value = waypnt.transform;
         if (wayTarg != null)
         {
             Moves.Value.SetDestination(wayTarg.position);

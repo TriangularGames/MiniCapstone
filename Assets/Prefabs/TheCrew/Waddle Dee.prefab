@@ -145,6 +145,7 @@ MonoBehaviour:
   - rid: 2712864706380169547
   - rid: 2712864706380169548
   - rid: 2712864706380169549
+  - rid: 2712864730653392921
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -175,3 +176,11 @@ MonoBehaviour:
           m_Value1: 8552482580233756208
         Name: EnemyAI
         m_Value: {fileID: 3783044914371067917}
+    - rid: 2712864730653392921
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3040111735649063367
+          m_Value1: 8132943040584430916
+        Name: Spawner
+        m_Value: {fileID: 0}

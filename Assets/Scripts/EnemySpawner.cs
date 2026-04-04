@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     }   
     void Update()
     {
-        if (activeEnemies <= maxEnemies)
+        if (activeEnemies < maxEnemies)
         {
             timer += Time.deltaTime;
             if (timer >= spawnTimer)
@@ -34,5 +34,6 @@ public class EnemySpawner : MonoBehaviour
         randomEnemy = Random.Range(0, enemies.Length);
         GameObject enemy = Instantiate(enemies[randomEnemy], transform.position, Quaternion.identity);
         activeEnemies++;
+
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - Chat
   - Session
   - Food
+  - Waypoints
+  - Spawners
   layers:
   - Default
   - TransparentFX
