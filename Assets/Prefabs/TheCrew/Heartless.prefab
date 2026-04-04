@@ -71,6 +71,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2729754987452322294}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1506408772085949891}
     - targetCorrespondingSourceObject: {fileID: 2963214196499252877, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4697335623331624166}
@@ -102,6 +105,53 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1506408772085949891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245827230608100184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  m_Graph: {fileID: -1979029016348998224, guid: 375f49bdd1abb5a44839779b6fbe43bf, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 2712864706380169499
+  - rid: 2712864706380169501
+  - rid: 2712864706380169502
+  m_OriginalGraph: {fileID: 0}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2712864706380169499
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 6245827230608100184}
+    - rid: 2712864706380169501
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15172646512484131381
+          m_Value1: 17164177644461414329
+        Name: Waypoints
+        m_Value: {fileID: 0}
+    - rid: 2712864706380169502
+      type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5608077366165041652
+          m_Value1: 8552482580233756208
+        Name: EnemyAI
+        m_Value: {fileID: 2729754987452322294}
 --- !u!1 &8319195843880890500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2963214196499252877, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}

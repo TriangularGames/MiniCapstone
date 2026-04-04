@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private float spawnTimer = 10f;
     [SerializeField] private int maxEnemies = 3;
-    private int activeEnemies = 0;
+    public int activeEnemies = 0;
     private float timer = 0f;
     private int randomEnemy;
 
@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     }   
     void Update()
     {
-        if (activeEnemies != maxEnemies)
+        if (activeEnemies <= maxEnemies)
         {
             timer += Time.deltaTime;
             if (timer >= spawnTimer)
