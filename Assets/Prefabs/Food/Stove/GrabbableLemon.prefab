@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273346724952933240, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
       propertyPath: m_TagString
-      value: Food
+      value: Stove
       objectReference: {fileID: 0}
     - target: {fileID: 5273346726097272006, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
       propertyPath: m_Name
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273346726097272006, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
       propertyPath: m_TagString
-      value: Food
+      value: Cutting
       objectReference: {fileID: 0}
     - target: {fileID: 5273346726097272007, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
       propertyPath: m_LocalScale.x
@@ -285,10 +285,31 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7275593244625734848}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5273346726097272006, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 545171141721770958}
     - targetCorrespondingSourceObject: {fileID: 5273346724952933240, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
       insertIndex: -1
       addedObject: {fileID: 606189920565472331}
   m_SourcePrefab: {fileID: 100100000, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
+--- !u!1 &1041429347244905502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5273346726097272006, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
+  m_PrefabInstance: {fileID: 5142361531627612376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &545171141721770958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041429347244905502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67590752ff2f1b43afafa13edbfa216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Change
+  cookedVersion: {fileID: 910611288271320779, guid: 3df80c9c6355d8c48a1f1a8aafd291f5, type: 3}
 --- !u!4 &1041429347567244537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5273346724698897441, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
@@ -325,7 +346,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6016883772272276159, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
   m_PrefabInstance: {fileID: 5142361531627612376}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1041429347244905502}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a591d221a634417e9827eb58e17de84, type: 3}
