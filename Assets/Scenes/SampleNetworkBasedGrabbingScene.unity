@@ -2033,7 +2033,7 @@ MonoBehaviour:
   desktopRig: {fileID: 456776001}
   forceVROnAndroid: 1
   rigSelected: 0
-  mode: 3
+  mode: 2
 --- !u!4 &480358312
 Transform:
   m_ObjectHideFlags: 0
