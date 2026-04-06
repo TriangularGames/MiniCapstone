@@ -1428,9 +1428,18 @@ MonoBehaviour:
   - {fileID: 7195562353269366320, guid: 7859eeedbfd2f104c8c7f9bbf989de72, type: 3}
   - {fileID: 3739622759889074622, guid: a8bcf5fc944b96446a0394575ce5355c, type: 3}
   - {fileID: 8828389237301272721, guid: c2384795adb21224184ef8f77c887c68, type: 3}
+  Bosses:
+  - {fileID: 4884861319093805981, guid: e6c716c6c8335744081d0dee22fedae0, type: 3}
+  BossEnemy:
+  - {fileID: 2151384992869589067, guid: ecd868d943afb924196eaa374c8f5d11, type: 3}
   spawnTimer: 10
+  bossEnemySpawnTimer: 2
   maxEnemies: 3
+  maxBosses: 1
+  maxBossEnemies: 2
   activeEnemies: 0
+  activeBoss: 0
+  activeBossEnemies: 0
 --- !u!4 &326778060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 625d25eee350c144faf2c653d34a4c6c, type: 3}
@@ -3111,9 +3120,18 @@ MonoBehaviour:
   - {fileID: 7195562353269366320, guid: 7859eeedbfd2f104c8c7f9bbf989de72, type: 3}
   - {fileID: 3739622759889074622, guid: a8bcf5fc944b96446a0394575ce5355c, type: 3}
   - {fileID: 8828389237301272721, guid: c2384795adb21224184ef8f77c887c68, type: 3}
+  Bosses:
+  - {fileID: 4884861319093805981, guid: e6c716c6c8335744081d0dee22fedae0, type: 3}
+  BossEnemy:
+  - {fileID: 2151384992869589067, guid: ecd868d943afb924196eaa374c8f5d11, type: 3}
   spawnTimer: 10
+  bossEnemySpawnTimer: 2
   maxEnemies: 3
+  maxBosses: 1
+  maxBossEnemies: 2
   activeEnemies: 0
+  activeBoss: 0
+  activeBossEnemies: 0
 --- !u!4 &790465429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 625d25eee350c144faf2c653d34a4c6c, type: 3}
@@ -5796,6 +5814,7 @@ MonoBehaviour:
   time: 0
   fill: {fileID: 385456367}
   max: 0
+  Type: 
 --- !u!65 &1447125141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7790,6 +7809,7 @@ MonoBehaviour:
   time: 0
   fill: {fileID: 1865297598}
   max: 0
+  Type: 
 --- !u!1001 &1923132916
 PrefabInstance:
   m_ObjectHideFlags: 0

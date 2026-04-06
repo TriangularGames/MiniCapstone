@@ -5,11 +5,19 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
+    [SerializeField] private GameObject[] Bosses;
+    [SerializeField] private GameObject[] BossEnemy;
     [SerializeField] private float spawnTimer = 10f;
+    [SerializeField] private float bossEnemySpawnTimer = 2f;
     [SerializeField] private int maxEnemies = 3;
+    [SerializeField] private int maxBosses = 1;
+    [SerializeField] private int maxBossEnemies = 2;
     public int activeEnemies = 0;
     private float timer = 0f;
     private int randomEnemy;
+    private int bossTimer = 0;
+    public int activeBoss = 0;
+    public int activeBossEnemies = 0;   
 
     void Start()
     {
@@ -18,13 +26,45 @@ public class EnemySpawner : MonoBehaviour
     }   
     void Update()
     {
-        if (activeEnemies < maxEnemies)
+        if (activeBoss == 0)
         {
-            timer += Time.deltaTime;
-            if (timer >= spawnTimer)
+            if (activeEnemies < maxEnemies)
             {
-                SpawnEnemy();
-                timer = 0f;
+                timer += Time.deltaTime;
+                if (timer >= spawnTimer)
+                {
+                    SpawnEnemy();
+                    timer = 0f;
+                    bossTimer++;
+                        if (bossTimer >= 6)
+                        {
+                            activeBoss++;
+                        }
+                    }
+                }
+        }
+        else if (bossTimer >= 6)
+        {
+            if (activeEnemies <= 0)
+            {
+                if (activeBoss == 1)
+                {
+                    if (activeBossEnemies < maxBossEnemies)
+                    {
+                        timer += Time.deltaTime;
+                        if (timer >= bossEnemySpawnTimer)
+                        {
+                            SpawnBossEnemy();
+                            timer = 0f;
+                        }
+                    }
+                    if (activeBossEnemies >= 2)
+                    {
+                        SpawnBoss();
+                        bossTimer = 0;
+                    }
+                    
+                }
             }
         }
     }
@@ -34,6 +74,17 @@ public class EnemySpawner : MonoBehaviour
         randomEnemy = Random.Range(0, enemies.Length);
         GameObject enemy = Instantiate(enemies[randomEnemy], transform.position, Quaternion.identity);
         activeEnemies++;
+
+    }
+    void SpawnBoss()
+    {
+        GameObject enemy = Instantiate(Bosses[0], transform.position, Quaternion.identity);
+        activeBoss++;
+    }
+    void SpawnBossEnemy()
+    {
+        GameObject enemy = Instantiate(BossEnemy[0], transform.position, Quaternion.identity);
+        activeBossEnemies++;
 
     }
 }
