@@ -11,6 +11,9 @@ TagManager:
   - Food
   - Waypoints
   - Spawners
+  - Cutting
+  - Boss
+  - Brick
   layers:
   - Default
   - TransparentFX
