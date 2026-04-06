@@ -8,6 +8,12 @@ TagManager:
   - VRSend
   - Chat
   - Session
+  - Food
+  - Waypoints
+  - Spawners
+  - Cutting
+  - Boss
+  - Brick
   layers:
   - Default
   - TransparentFX

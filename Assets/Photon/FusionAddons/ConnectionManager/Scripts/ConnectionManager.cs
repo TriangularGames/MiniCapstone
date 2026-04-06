@@ -85,7 +85,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
             if (runner == null) runner = gameObject.AddComponent<NetworkRunner>();
             runner.ProvideInput = true;
 
-            sessionListUIHandler = GameObject.FindGameObjectWithTag("Session").GetComponent<SessionListUIHandler>();
+            //sessionListUIHandler = GameObject.FindGameObjectWithTag("Session").GetComponent<SessionListUIHandler>();
         }
 
         private void Start()
