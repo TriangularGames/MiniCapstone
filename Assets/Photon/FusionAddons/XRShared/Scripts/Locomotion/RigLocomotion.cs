@@ -33,6 +33,10 @@ namespace Fusion.XR.Shared.Locomotion
         public float snapDegree = 45f;
         public float rotationInputThreshold = 0.5f;
 
+        [Header("Teleportation")]
+        [Tooltip("Automatically found if not set")]
+        public List<RayBeamer> teleportBeamers;
+
         bool rotating = false;
         float timeStarted = 0;
 
@@ -47,6 +51,12 @@ namespace Fusion.XR.Shared.Locomotion
         {
             rig = GetComponentInParent<HardwareRig>();
             locomotionValidationHandler = GetComponentInParent<ILocomotionValidationHandler>();
+
+            if (teleportBeamers.Count == 0) teleportBeamers = new List<RayBeamer>(GetComponentsInChildren<RayBeamer>());
+            foreach (var beamer in teleportBeamers)
+            {
+                beamer.onRelease.AddListener(OnBeamRelease);
+            }
 
             var bindings = new List<string> { "joystick" };
 #if ENABLE_INPUT_SYSTEM
