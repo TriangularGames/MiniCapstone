@@ -5811,10 +5811,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cook
   timer: {fileID: 2003189091}
-  time: 0
+  time: 5
   fill: {fileID: 385456367}
-  max: 0
-  Type: 
+  max: 5
+  Type: Cutting
 --- !u!65 &1447125141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7853,10 +7853,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cook
   timer: {fileID: 1441972874}
-  time: 0
+  time: 5
   fill: {fileID: 1865297598}
-  max: 0
-  Type: 
+  max: 5
+  Type: Stove
 --- !u!1001 &1923132916
 PrefabInstance:
   m_ObjectHideFlags: 0
