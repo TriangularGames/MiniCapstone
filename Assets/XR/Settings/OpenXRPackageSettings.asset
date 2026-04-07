@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90ae1e8c3c7a542bba339faf2e771c5a, type: 3}
-  m_Name: AndroidXRSupportFeature Standalone
+  m_Name: AndroidXRSupportFeature Android
   m_EditorClassIdentifier: Unity.XR.AndroidOpenXR::UnityEngine.XR.OpenXR.Features.Android.AndroidXRSupportFeature
   m_enabled: 0
   nameUi: Android XR Support
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d3bf61b014a48a2b7564c61da9d7ad, type: 3}
-  m_Name: AndroidXRPerformanceMetrics Standalone
+  m_Name: AndroidXRPerformanceMetrics Android
   m_EditorClassIdentifier: Unity.XR.AndroidOpenXR::UnityEngine.XR.OpenXR.Features.Android.AndroidXRPerformanceMetrics
   m_enabled: 0
   nameUi: Android XR Performance Metrics
@@ -1700,8 +1700,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.XR.OpenXR::UnityEngine.XR.OpenXR.OpenXRSettings
   features:
   - {fileID: 8426388849127222040}
-  - {fileID: -1227191918330360759}
-  - {fileID: 5492775967019228466}
+  - {fileID: -1802132940654683577}
+  - {fileID: -7835663299064220273}
   - {fileID: 3512176307981245589}
   - {fileID: 6939779898093487786}
   - {fileID: -8506248452414804705}
@@ -1712,7 +1712,7 @@ MonoBehaviour:
   - {fileID: -3197448728137320631}
   - {fileID: -7665668588450304181}
   - {fileID: 3510010111304748841}
-  - {fileID: 6222973268037094299}
+  - {fileID: -3174160098709265727}
   - {fileID: 6632476414642503217}
   - {fileID: 14720694877877952}
   - {fileID: 6410137916606636082}
