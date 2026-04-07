@@ -1079,7 +1079,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserTomato
+      value: FoodDispenserEgg
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 2484230568608154062, guid: d47b0b4c8a6477e4390be596fef6290b, type: 3}
+      objectReference: {fileID: 6884148209457751741, guid: 851f2882d35b055488e640bd2a4ee3b1, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.29
@@ -1278,7 +1278,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserOnion
+      value: FoodDispenserTomato
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -1287,7 +1287,7 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 6221474460549518549, guid: e3f6f833344144b4688a353b34c794c9, type: 3}
+      objectReference: {fileID: 2484230568608154062, guid: d47b0b4c8a6477e4390be596fef6290b, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.09
@@ -2033,7 +2033,7 @@ MonoBehaviour:
   desktopRig: {fileID: 456776001}
   forceVROnAndroid: 1
   rigSelected: 0
-  mode: 3
+  mode: 2
 --- !u!4 &480358312
 Transform:
   m_ObjectHideFlags: 0
@@ -4139,7 +4139,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserPotato
+      value: FoodDispenserLemon
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -4148,7 +4148,7 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 7440594735913648083, guid: 2ddf1b5596491fe4c98d26f9599b64a6, type: 3}
+      objectReference: {fileID: 1041429347244905490, guid: 48a543e0bab8b4f479a57cf5499f1b9c, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.09
@@ -5811,10 +5811,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cook
   timer: {fileID: 2003189091}
-  time: 0
+  time: 5
   fill: {fileID: 385456367}
-  max: 0
-  Type: 
+  max: 5
+  Type: Cutting
 --- !u!65 &1447125141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6218,6 +6218,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1535039305
+GameObject:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1535039307}
+  - component: {fileID: 1535039306}
+  m_Layer: 0
+  m_Name: Fusion_PhotonBackgroundConnectionHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1535039306
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535039305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1222927710, guid: 7de3b8b9e1263ad479e2d0c4261b7646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Realtime.dll::Fusion.Photon.Realtime.ConnectionHandler
+  DisconnectAfterKeepAlive: 0
+  KeepAliveInBackground: 60000
+  ApplyDontDestroyOnLoad: 1
+--- !u!4 &1535039307
+Transform:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535039305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560948483
 GameObject:
   m_ObjectHideFlags: 0
@@ -7806,10 +7853,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cook
   timer: {fileID: 1441972874}
-  time: 0
+  time: 5
   fill: {fileID: 1865297598}
-  max: 0
-  Type: 
+  max: 5
+  Type: Stove
 --- !u!1001 &1923132916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8083,10 +8130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -8739,7 +8786,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 534241562484498038, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_Name
-      value: FoodDispenserSteak
+      value: FoodDispenserPotato
       objectReference: {fileID: 0}
     - target: {fileID: 607157727355333265, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: SortKey
@@ -8748,7 +8795,7 @@ PrefabInstance:
     - target: {fileID: 913328193012702255, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 910611288271320775, guid: 3df80c9c6355d8c48a1f1a8aafd291f5, type: 3}
+      objectReference: {fileID: 7440594735913648083, guid: 2ddf1b5596491fe4c98d26f9599b64a6, type: 3}
     - target: {fileID: 4071584544227744320, guid: 4ebcb81b4ca973c46aabab90436d02ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.29
@@ -8829,11 +8876,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4208948367510053356, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4208948367510053356, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: useRayActionInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4208948368294204020, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: m_Layer
@@ -8853,11 +8900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4208948368886931614, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4208948368886931614, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: useRayActionInput
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4208948369037581448, guid: 72aacf5ad018ef84f8c2f1796da09345, type: 3}
       propertyPath: runner
@@ -8994,3 +9041,4 @@ SceneRoots:
   - {fileID: 180733561}
   - {fileID: 757287668}
   - {fileID: 1923132916}
+  - {fileID: 1535039307}
