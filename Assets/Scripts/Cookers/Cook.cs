@@ -7,6 +7,7 @@ public class Cook : MonoBehaviour
     public float time;
     public Image fill;
     public float max;
+    public float delay = 0.5f;
 
     [SerializeField] private string Type;
 
@@ -22,8 +23,13 @@ public class Cook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StartTimer)
+        if (StartTimer && delay <= 0.0f)
         {
+            if (!timer.activeSelf)
+            {
+                timer.SetActive(true);
+            }
+
             time -= Time.deltaTime;
             fill.fillAmount = time / max;
             if (time < 0)
@@ -35,6 +41,10 @@ public class Cook : MonoBehaviour
                     timer.SetActive(false);
                 }
             }
+        }
+        else
+        {
+            delay -= Time.deltaTime;
         }
     }
 
@@ -57,8 +67,8 @@ public class Cook : MonoBehaviour
             fill.color = Color.red;
             StartTimer = true;
             time = 5;
+            delay = 2.0f;
             max = time;
-            timer.SetActive(true);
         }
     }
 
