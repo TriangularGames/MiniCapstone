@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private GameObject[] Bosses;
     [SerializeField] private GameObject[] BossEnemy;
+    [SerializeField] private GameObject waypoints;
     [SerializeField] private float spawnTimer = 10f;
     [SerializeField] private float bossEnemySpawnTimer = 2f;
     [SerializeField] private int maxEnemies = 3;
@@ -36,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
                     bossTimer++;
                         if (bossTimer >= 6)
                         {
-                            activeBoss++;
+                            activeBoss = 1;
                         }
                     }
                 }
@@ -48,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
                 if (activeBoss == 1)
                 {
                     if (activeBossEnemies < maxBossEnemies)
-                    {
+                    {  
                         timer += Time.deltaTime;
                         if (timer >= bossEnemySpawnTimer)
                         {
@@ -56,10 +57,12 @@ public class EnemySpawner : MonoBehaviour
                             timer = 0f;
                         }
                     }
-                    if (activeBossEnemies >= 2)
+                    if (activeBossEnemies == 2)
                     {
-                        SpawnBoss();
                         bossTimer = 0;
+                        activeEnemies = 0;
+                        SpawnBoss();
+                        
                     }
                     
                 }
@@ -72,12 +75,11 @@ public class EnemySpawner : MonoBehaviour
         randomEnemy = Random.Range(0, enemies.Length);
         GameObject enemy = Instantiate(enemies[randomEnemy], transform.position, Quaternion.identity);
         activeEnemies++;
-
     }
     void SpawnBoss()
     {
         GameObject enemy = Instantiate(Bosses[0], transform.position, Quaternion.identity);
-        activeBoss++;
+        activeBoss = 2;
     }
     void SpawnBossEnemy()
     {

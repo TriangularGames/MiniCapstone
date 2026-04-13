@@ -16,10 +16,10 @@ public class Die : StateMachineBehaviour
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameObject sewnr = GameObject.FindWithTag("Spawners");
-        GameObject Self = GameObject.FindWithTag("Boss");
+        GameObject Self = animator.gameObject;
         Returns = Self.GetComponent<NavMeshAgent>();
         And = sewnr.transform;
-        foreach (Transform freepoint in MoveToCounterAction.WaypointTaken)
+        foreach (Transform freepoint in MoveToCounter.WaypointTaken)
         {
             if (Vector3.Distance(Self.transform.position, freepoint.position) < 2f)
             {
@@ -29,7 +29,7 @@ public class Die : StateMachineBehaviour
         }
         if (free != null)
         {
-            MoveToCounterAction.WaypointTaken.Remove(free);
+            MoveToCounter.WaypointTaken.Remove(free);
         }
 
         if (wayTarg != null)

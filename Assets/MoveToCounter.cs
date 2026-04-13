@@ -17,8 +17,8 @@ public class MoveToCounter : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject Enemy = GameObject.FindWithTag("Boss");
-        Moves = Enemy.GetComponent<NavMeshAgent>();
+        GameObject Enemy = animator.gameObject;
+        Moves = Enemy.GetComponent<NavMeshAgent>(); 
         GameObject waypnt = GameObject.FindWithTag("Waypoints");
         Waypoint = waypnt.transform;
         if (wayTarg != null)
