@@ -2440,6 +2440,7 @@ GameObject:
   - component: {fileID: 4687972091364823001}
   - component: {fileID: 6001942317265644414}
   - component: {fileID: 8774087491113653105}
+  - component: {fileID: 7747111717144466458}
   m_Layer: 0
   m_Name: Mephiles
   m_TagString: Untagged
@@ -2541,6 +2542,24 @@ MonoBehaviour:
           m_Value1: 8132943040584430916
         Name: Spawner
         m_Value: {fileID: 0}
+--- !u!114 &7747111717144466458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195562353269366320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
+  SortKey: 1369156844
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours: []
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &7469720116057960049
 GameObject:
   m_ObjectHideFlags: 0

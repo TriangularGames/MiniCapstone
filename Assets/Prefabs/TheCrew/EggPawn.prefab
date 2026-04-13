@@ -74,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b72d6c94948c23749a069fb296f746b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7233089063381206150}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b72d6c94948c23749a069fb296f746b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7845193148114130209}
     - targetCorrespondingSourceObject: {fileID: -7087497330730124887, guid: b72d6c94948c23749a069fb296f746b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7889668925831260462}
@@ -198,3 +201,21 @@ MonoBehaviour:
           m_Value1: 14720799439294502008
         Name: Spawner
         m_Value: {fileID: 0}
+--- !u!114 &-7845193148114130209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151384992869589067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
+  SortKey: 2555334774
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours: []
+  ForceRemoteRenderTimeframe: 0
