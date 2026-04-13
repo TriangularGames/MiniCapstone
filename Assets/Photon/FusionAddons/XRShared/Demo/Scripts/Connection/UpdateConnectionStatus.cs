@@ -18,8 +18,6 @@ public class UpdateConnectionStatus : MonoBehaviour, INetworkRunnerCallbacks
     public AudioClip localUserSpawned;
     public AudioClip playerJoined;
     public AudioClip playerLeft;
-
-    public TextMeshProUGUI sessionStatus;
        
     protected virtual void Start()
     {
@@ -46,7 +44,6 @@ public class UpdateConnectionStatus : MonoBehaviour, INetworkRunnerCallbacks
 
     protected virtual void DebugLog(string debug, bool permanentError = false)
     {
-        sessionStatus.text = debug;
         if (permanentError)
         {
             Debug.LogError(debug);
