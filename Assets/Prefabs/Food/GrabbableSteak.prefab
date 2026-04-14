@@ -223,6 +223,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5273346726097272008, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273346726097272008, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
@@ -341,6 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Change
   cookedVersion: {fileID: 0}
+  foodSpawner: {fileID: 0}
 --- !u!114 &1589162798833318066 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6016883772272276159, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}

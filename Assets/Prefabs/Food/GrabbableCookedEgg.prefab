@@ -115,6 +115,7 @@ MonoBehaviour:
       m_Calls: []
   extrapolateWhileTakingAuthority: 1
   isTakingAuthority: 0
+  status: 0
 --- !u!114 &6539989000451396758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Change
   cookedVersion: {fileID: 0}
+  foodSpawner: {fileID: 0}
 --- !u!1 &6208817459031892578
 GameObject:
   m_ObjectHideFlags: 0

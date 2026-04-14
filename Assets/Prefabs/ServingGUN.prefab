@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4933744317804457744}
   - component: {fileID: 4350691545010895217}
   - component: {fileID: 7950449223150679867}
-  - component: {fileID: 1072164109685606170}
   m_Layer: 0
   m_Name: ServingGUN
   m_TagString: Untagged
@@ -121,6 +120,7 @@ MonoBehaviour:
       m_Calls: []
   extrapolateWhileTakingAuthority: 1
   isTakingAuthority: 0
+  status: 0
 --- !u!114 &7950449223150679867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,29 +137,19 @@ MonoBehaviour:
   firePoint: {fileID: 865778222051483901}
   foodToFire: []
   speed: 2
---- !u!136 &1072164109685606170
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886626067242130016}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.54227906
-  m_Height: 4.917593
-  m_Direction: 2
-  m_Center: {x: -0.14542261, y: 1.6303147, z: 0.05003134}
+  Detector: {fileID: 0}
+  interactAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Interact
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f6649eaa-3fe4-4655-ab27-f90e46c7036f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!1 &3516506683975938538
 GameObject:
   m_ObjectHideFlags: 0

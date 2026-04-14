@@ -12,7 +12,9 @@ public class GunShooter : NetworkBehaviour
     [SerializeField] private Transform firePoint;
     // The food currently inside the gun
     [SerializeField] private List<NetworkObject> foodToFire;
-    [SerializeField] private float speed = 10.0f;
+    [SerializeField] private float speed = 2.0f;
+
+    private bool pressed = false;
 
     [SerializeField] private GameObject Detector;
 
@@ -35,7 +37,7 @@ public class GunShooter : NetworkBehaviour
         Detector = transform.GetChild(2).gameObject;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (grabbable.status == NetworkHandColliderGrabbable.Status.Grabbed)
         {
@@ -43,16 +45,22 @@ public class GunShooter : NetworkBehaviour
             {
                 Detector.SetActive(false);
             }
-            if (interactAction.action.IsPressed())
+            if (interactAction.action.IsInProgress())
             {
-                Debug.Log("Interact Pressed!");
-                if (foodToFire.Count > 0)
+                if (!pressed)
                 {
-                    // Get first food in gun
-                    NetworkObject food = foodToFire[0];
-                    foodToFire.RemoveAt(0);
-                    NetworkObject obj = Runner.Spawn(food, firePoint.position, Quaternion.identity, inputAuthority: null);
-                    obj.GetComponent<Rigidbody>().AddForce(firePoint.forward * speed, ForceMode.Impulse);
+                    pressed = true;
+                    Debug.Log("Interact Pressed!");
+                    if (foodToFire.Count > 0)
+                    {
+                        // Get first food in gun
+                        NetworkObject food = foodToFire[0];
+                        foodToFire.RemoveAt(0);
+                        NetworkObject obj = Runner.Spawn(food, firePoint.position, Quaternion.identity, inputAuthority: null);
+                        obj.GetComponent<Rigidbody>().mass = 0.05f;
+                        obj.GetComponent<Rigidbody>().AddForce(firePoint.forward * speed, ForceMode.Impulse);
+                    }
+                    pressed = false;
                 }
             }
         }

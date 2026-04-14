@@ -200,6 +200,7 @@ MonoBehaviour:
       m_Calls: []
   extrapolateWhileTakingAuthority: 1
   isTakingAuthority: 0
+  status: 0
 --- !u!114 &4447216647238389611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Change
   cookedVersion: {fileID: 0}
+  foodSpawner: {fileID: 0}
 --- !u!1001 &5121766174212070217
 PrefabInstance:
   m_ObjectHideFlags: 0
