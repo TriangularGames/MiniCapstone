@@ -35,10 +35,17 @@ public class Cook : MonoBehaviour
             if (time < 0)
             {
                 time = 0;
+
+                // If Obj can Change
                 if (obj != null)
                 {                    
                     obj.gameObject.transform.parent.GetComponent<Change>().ChangeObj();
                     timer.SetActive(false);
+                }
+                else
+                {
+                    timer.SetActive(false);
+                    StartTimer = false;
                 }
             }
         }
@@ -62,8 +69,8 @@ public class Cook : MonoBehaviour
         }
         if (other.gameObject.tag == "Food")
         {
-            obj = other;
-            timer.GetComponent<Image>().color = fill.color;
+            obj = null;
+            //timer.GetComponent<Image>().color = fill.color;
             fill.color = Color.red;
             StartTimer = true;
             time = 5;

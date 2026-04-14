@@ -61,12 +61,12 @@ namespace Fusion.XR.Shared.Grabbing.NetworkHandColliderBased
         Quaternion localRotationOffsetWhileTakingAuthority;
         NetworkHandColliderGrabber grabberWhileTakingAuthority;
 
-        enum Status { 
+        public enum Status { 
             NotGrabbed,
             Grabbed,
             WillBeGrabbedUponAuthorityReception
         }
-        Status status = Status.NotGrabbed;
+        public Status status = Status.NotGrabbed;
 
         Vector3 Velocity
         {
