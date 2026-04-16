@@ -9022,6 +9022,14 @@ PrefabInstance:
       propertyPath: interactAction.m_Action.m_Name
       value: Interact
       objectReference: {fileID: 0}
+    - target: {fileID: 7950449223150679867, guid: af0943a1d6943104e8687fd530ea75fd, type: 3}
+      propertyPath: interactVRLeftAction.m_Action.m_Name
+      value: Interact VR Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950449223150679867, guid: af0943a1d6943104e8687fd530ea75fd, type: 3}
+      propertyPath: interactVRRightAction.m_Action.m_Name
+      value: Interact VR Right
+      objectReference: {fileID: 0}
     - target: {fileID: 7971029714700415118, guid: af0943a1d6943104e8687fd530ea75fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8293829
