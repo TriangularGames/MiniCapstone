@@ -1,4 +1,5 @@
 using Fusion;
+using Fusion.XR.Shared;
 using Fusion.XR.Shared.Grabbing.NetworkHandColliderBased;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class GunShooter : NetworkBehaviour
     [SerializeField] private GameObject Detector;
 
     public InputActionProperty interactAction;
+    public InputActionProperty interactVRLeftAction;
+    public InputActionProperty interactVRRightAction;
 
     private void Awake()
     {
@@ -27,7 +30,8 @@ public class GunShooter : NetworkBehaviour
             if (interactAction.reference == null && interactAction.action.bindings.Count == 0)
             {
                 interactAction.action.AddBinding("<Mouse>/rightButton");
-                interactAction.action.AddBinding("<LeftHandXRController>/PrimaryAction");
+                interactVRLeftAction.EnableWithDefaultXRBindings(side: Fusion.XR.Shared.Rig.RigPart.LeftController, new List<string> { "trigger" });
+                interactVRRightAction.EnableWithDefaultXRBindings(side: Fusion.XR.Shared.Rig.RigPart.RightController, new List<string> { "trigger" });
             }
 
             interactAction.action.Enable();
@@ -45,7 +49,7 @@ public class GunShooter : NetworkBehaviour
             {
                 Detector.SetActive(false);
             }
-            if (interactAction.action.IsInProgress())
+            if (interactAction.action.IsInProgress() || interactVRLeftAction.action.IsInProgress() || interactVRRightAction.action.IsInProgress())
             {
                 if (!pressed)
                 {
