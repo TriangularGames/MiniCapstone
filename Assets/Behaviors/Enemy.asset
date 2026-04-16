@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: Enemy Blackboard
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.RuntimeBlackboardAsset
-  VersionTimestamp: 639109144726539154
+  VersionTimestamp: 639118809326633539
   AssetID:
     m_Value0: 11868581310317027127
     m_Value1: 13782068671242778952
@@ -112,8 +112,8 @@ MonoBehaviour:
           rid: 2712864706380169464
         BlackboardGroupReferences: []
         Root:
-          rid: 2712864730653393046
-        m_VersionTimestamp: 639109144727639696
+          rid: 2712864982938681431
+        m_VersionTimestamp: 639118809328024752
     - rid: 2712864706380169464
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -124,20 +124,12 @@ MonoBehaviour:
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 2712864730653393048
-        - rid: 2712864730653393049
-        - rid: 2712864730653393050
-        - rid: 2712864730653393051
-        - rid: 2712864730653393052
-    - rid: 2712864730653393033
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {fileID: 0}
-    - rid: 2712864730653393046
+        - rid: 2712864982938681433
+        - rid: 2712864982938681434
+        - rid: 2712864982938681435
+        - rid: 2712864982938681436
+        - rid: 2712864982938681437
+    - rid: 2712864982938681431
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -148,10 +140,10 @@ MonoBehaviour:
         m_Parent:
           rid: -2
         m_Child:
-          rid: 2712864730653393047
+          rid: 2712864982938681432
         Repeat: 0
         AllowMultipleRepeatsPerTick: 0
-    - rid: 2712864730653393047
+    - rid: 2712864982938681432
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -160,12 +152,12 @@ MonoBehaviour:
         Graph:
           rid: 2712864706380169463
         m_Parent:
-          rid: 2712864730653393046
+          rid: 2712864982938681431
         m_Children:
-        - rid: 2712864730653393053
-        - rid: 2712864730653393054
+        - rid: 2712864982938681438
+        - rid: 2712864982938681439
         m_RegisteredObservers: []
-    - rid: 2712864730653393048
+    - rid: 2712864982938681433
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -173,7 +165,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 2712864730653393049
+    - rid: 2712864982938681434
       type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -181,7 +173,7 @@ MonoBehaviour:
           m_Value1: 8552482580233756208
         Name: EnemyAI
         m_Value: {fileID: 0}
-    - rid: 2712864730653393050
+    - rid: 2712864982938681435
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -189,7 +181,7 @@ MonoBehaviour:
           m_Value1: 17164177644461414329
         Name: Waypoints
         m_Value: {fileID: 0}
-    - rid: 2712864730653393051
+    - rid: 2712864982938681436
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -197,7 +189,7 @@ MonoBehaviour:
           m_Value1: 11368814679208059110
         Name: Brick
         m_Value: {fileID: 588592057831477659, guid: 7dcc8dbdfad80dd4b972e83feeeac236, type: 3}
-    - rid: 2712864730653393052
+    - rid: 2712864982938681437
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -205,7 +197,7 @@ MonoBehaviour:
           m_Value1: 8132943040584430916
         Name: Spawner
         m_Value: {fileID: 0}
-    - rid: 2712864730653393053
+    - rid: 2712864982938681438
       type: {class: MoveToCounterAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
@@ -214,14 +206,14 @@ MonoBehaviour:
         Graph:
           rid: 2712864706380169463
         m_Parent:
-          rid: 2712864730653393047
+          rid: 2712864982938681432
         Enemy:
-          rid: 2712864730653393048
+          rid: 2712864982938681433
         Moves:
-          rid: 2712864730653393049
+          rid: 2712864982938681434
         Waypoint:
-          rid: 2712864730653393050
-    - rid: 2712864730653393054
+          rid: 2712864982938681435
+    - rid: 2712864982938681439
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -230,12 +222,12 @@ MonoBehaviour:
         Graph:
           rid: 2712864706380169463
         m_Parent:
-          rid: 2712864730653393047
+          rid: 2712864982938681432
         m_Children:
-        - rid: 2712864730653393055
-        - rid: 2712864730653393056
+        - rid: 2712864982938681440
+        - rid: 2712864982938681441
         m_RegisteredObservers: []
-    - rid: 2712864730653393055
+    - rid: 2712864982938681440
       type: {class: ServedAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
@@ -244,12 +236,13 @@ MonoBehaviour:
         Graph:
           rid: 2712864706380169463
         m_Parent:
-          rid: 2712864730653393054
+          rid: 2712864982938681439
         Self:
-          rid: 2712864730653393048
+          rid: 2712864982938681433
         Be:
-          rid: 2712864730653393051
-    - rid: 2712864730653393056
+          rid: 2712864982938681436
+        food: []
+    - rid: 2712864982938681441
       type: {class: LeaveAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
@@ -258,15 +251,13 @@ MonoBehaviour:
         Graph:
           rid: 2712864706380169463
         m_Parent:
-          rid: 2712864730653393054
+          rid: 2712864982938681439
         Self:
-          rid: 2712864730653393048
+          rid: 2712864982938681433
         Returns:
-          rid: 2712864730653393049
+          rid: 2712864982938681434
         And:
-          rid: 2712864730653393052
-        Enemy:
-          rid: 2712864730653393033
+          rid: 2712864982938681437
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +277,7 @@ MonoBehaviour:
   - rid: 2712864706380169511
   - rid: 2712864706380169554
   - rid: 2712864706380169601
-  m_VersionTimestamp: 639109144727639696
+  m_VersionTimestamp: 639118809328024752
   m_SerializedVersion: 2
   m_DebugInfo: {fileID: -2467080410398487271}
   m_RuntimeGraph: {fileID: -1979029016348998224}
@@ -354,7 +345,7 @@ MonoBehaviour:
     NamedChildren: []
     IsPlaceholder: 0
   - Name: leave
-    Story: '[Self] [returns] [and] dies and adds one more [Enemy]'
+    Story: '[Self] [returns] [and] dies'
     RuntimeTypeString: LeaveAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RuntimeTypeID:
@@ -376,11 +367,6 @@ MonoBehaviour:
         m_SerializableType: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       Tooltip: 
-    - Name: Enemy
-      Type:
-        m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      Tooltip: 
     NamedChildren: []
     IsPlaceholder: 0
   m_Blackboards: []
@@ -394,8 +380,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 2712864706380169468
       type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
@@ -672,7 +656,6 @@ MonoBehaviour:
         - rid: 2712864706380169604
         - rid: 2712864706380169605
         - rid: 2712864706380169606
-        - rid: 2712864730653393017
     - rid: 2712864706380169602
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -779,25 +762,6 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
-    - rid: 2712864730653393017
-      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        FieldName: Enemy
-        Type:
-          m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        LocalValue:
-          rid: 2712864730653393018
-        LinkedVariable:
-          rid: -2
-    - rid: 2712864730653393018
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: {fileID: 0}
 --- !u!114 &6548496783592725299
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -819,7 +783,7 @@ MonoBehaviour:
   - rid: 2712864706380169487
   - rid: 2712864706380169564
   - rid: 2712864730653392897
-  m_VersionTimestamp: 639109144726539154
+  m_VersionTimestamp: 639118809326633539
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: -1983468874535320618}

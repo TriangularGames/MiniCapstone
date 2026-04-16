@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: BossMinion Blackboard
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.RuntimeBlackboardAsset
-  VersionTimestamp: 639116348461109830
+  VersionTimestamp: 639118933756881010
   AssetID:
     m_Value0: 9516126684565662833
     m_Value1: 15148915020243772763
@@ -99,8 +99,8 @@ MonoBehaviour:
           rid: 2712864909599440972
         BlackboardGroupReferences: []
         Root:
-          rid: 2712864919747035140
-        m_VersionTimestamp: 639116348477678491
+          rid: 2712864982938681469
+        m_VersionTimestamp: 639118933757916601
     - rid: 2712864909599440972
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -111,12 +111,12 @@ MonoBehaviour:
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 2712864919747035142
-        - rid: 2712864919747035143
-        - rid: 2712864919747035144
-        - rid: 2712864919747035145
-        - rid: 2712864919747035146
-    - rid: 2712864919747035140
+        - rid: 2712864982938681471
+        - rid: 2712864982938681472
+        - rid: 2712864982938681473
+        - rid: 2712864982938681474
+        - rid: 2712864982938681475
+    - rid: 2712864982938681469
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -127,10 +127,10 @@ MonoBehaviour:
         m_Parent:
           rid: -2
         m_Child:
-          rid: 2712864919747035141
+          rid: 2712864982938681470
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
-    - rid: 2712864919747035141
+    - rid: 2712864982938681470
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -139,12 +139,12 @@ MonoBehaviour:
         Graph:
           rid: 2712864909599440971
         m_Parent:
-          rid: 2712864919747035140
+          rid: 2712864982938681469
         m_Children:
-        - rid: 2712864919747035147
-        - rid: 2712864919747035148
+        - rid: 2712864982938681476
+        - rid: 2712864982938681477
         m_RegisteredObservers: []
-    - rid: 2712864919747035142
+    - rid: 2712864982938681471
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -152,7 +152,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 2712864919747035143
+    - rid: 2712864982938681472
       type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -160,7 +160,7 @@ MonoBehaviour:
           m_Value1: 15008860194249572401
         Name: MinionAI
         m_Value: {fileID: 0}
-    - rid: 2712864919747035144
+    - rid: 2712864982938681473
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -168,7 +168,7 @@ MonoBehaviour:
           m_Value1: 1540397167356021156
         Name: Waypoint
         m_Value: {fileID: 0}
-    - rid: 2712864919747035145
+    - rid: 2712864982938681474
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -176,7 +176,7 @@ MonoBehaviour:
           m_Value1: 16566323330671539610
         Name: Brick
         m_Value: {fileID: 0}
-    - rid: 2712864919747035146
+    - rid: 2712864982938681475
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -184,7 +184,7 @@ MonoBehaviour:
           m_Value1: 14720799439294502008
         Name: Spawner
         m_Value: {fileID: 0}
-    - rid: 2712864919747035147
+    - rid: 2712864982938681476
       type: {class: MinionToCounterAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
@@ -193,16 +193,16 @@ MonoBehaviour:
         Graph:
           rid: 2712864909599440971
         m_Parent:
-          rid: 2712864919747035141
+          rid: 2712864982938681470
         Self:
-          rid: 2712864919747035142
+          rid: 2712864982938681471
         Nav:
-          rid: 2712864919747035143
+          rid: 2712864982938681472
         Counter:
-          rid: 2712864919747035144
+          rid: 2712864982938681473
         Spawner:
-          rid: 2712864919747035146
-    - rid: 2712864919747035148
+          rid: 2712864982938681475
+    - rid: 2712864982938681477
       type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -211,12 +211,12 @@ MonoBehaviour:
         Graph:
           rid: 2712864909599440971
         m_Parent:
-          rid: 2712864919747035141
+          rid: 2712864982938681470
         m_Children:
-        - rid: 2712864919747035149
-        - rid: 2712864919747035150
+        - rid: 2712864982938681478
+        - rid: 2712864982938681479
         m_RegisteredObservers: []
-    - rid: 2712864919747035149
+    - rid: 2712864982938681478
       type: {class: BrickAndWaitAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
@@ -225,12 +225,12 @@ MonoBehaviour:
         Graph:
           rid: 2712864909599440971
         m_Parent:
-          rid: 2712864919747035148
+          rid: 2712864982938681477
         Self:
-          rid: 2712864919747035142
+          rid: 2712864982938681471
         Bricks:
-          rid: 2712864919747035145
-    - rid: 2712864919747035150
+          rid: 2712864982938681474
+    - rid: 2712864982938681479
       type: {class: MinionDiesAction, ns: , asm: Assembly-CSharp}
       data:
         ID:
@@ -239,13 +239,13 @@ MonoBehaviour:
         Graph:
           rid: 2712864909599440971
         m_Parent:
-          rid: 2712864919747035148
+          rid: 2712864982938681477
         Self:
-          rid: 2712864919747035142
+          rid: 2712864982938681471
         Navs:
-          rid: 2712864919747035143
+          rid: 2712864982938681472
         Spawner:
-          rid: 2712864919747035146
+          rid: 2712864982938681475
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   - rid: 2712864909599441037
   - rid: 2712864909599441065
   - rid: 2712864909599441091
-  m_VersionTimestamp: 639116348477678491
+  m_VersionTimestamp: 639118933757916601
   m_SerializedVersion: 2
   m_DebugInfo: {fileID: 5916055486768495133}
   m_RuntimeGraph: {fileID: -4105775757289976506}
@@ -819,7 +819,7 @@ MonoBehaviour:
   - rid: 2712864909599440999
   - rid: 2712864909599441009
   - rid: 2712864909599441021
-  m_VersionTimestamp: 639116348461109830
+  m_VersionTimestamp: 639118933756881010
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: -7984062231504980274}

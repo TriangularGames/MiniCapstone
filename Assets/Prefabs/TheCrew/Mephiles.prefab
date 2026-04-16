@@ -1539,7 +1539,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: -8679921383154817045}
-  - component: {fileID: 6812426727232133506}
   m_Layer: 0
   m_Name: Mephiles
   m_TagString: Untagged
@@ -1596,29 +1595,6 @@ Transform:
   - {fileID: -8767844329397212942}
   m_Father: {fileID: 4687972091364823001}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!136 &6812426727232133506
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!1 &2349905237342837753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,6 +2417,7 @@ GameObject:
   - component: {fileID: 6001942317265644414}
   - component: {fileID: 8774087491113653105}
   - component: {fileID: 7747111717144466458}
+  - component: {fileID: 2384783458952160711}
   m_Layer: 0
   m_Name: Mephiles
   m_TagString: Untagged
@@ -2560,6 +2537,29 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours: []
   ForceRemoteRenderTimeframe: 0
+--- !u!136 &2384783458952160711
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195562353269366320}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 3.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7469720116057960049
 GameObject:
   m_ObjectHideFlags: 0

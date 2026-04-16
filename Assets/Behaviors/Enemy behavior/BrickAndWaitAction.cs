@@ -16,11 +16,14 @@ public partial class BrickAndWaitAction : Action
     private float timer = 0f;
     private float timer2 = 0f;
     private float brickThrow = 7f;
-
+    private Animator bossimator;
     protected override Status OnUpdate()
     {
+        GameObject Boss = GameObject.FindWithTag("Boss");
+        bossimator = Boss.GetComponent<Animator>();
+        AnimatorStateInfo bossInfo = bossimator.GetCurrentAnimatorStateInfo(0);
+        
         timer += Time.deltaTime;
-        timer2 += Time.deltaTime;
         if (timer > brickThrow)
         {
             spawnPosition = Self.Value.transform.position + (Self.Value.transform.forward * 1.2f) + (Vector3.up * 1.5f);
@@ -33,12 +36,10 @@ public partial class BrickAndWaitAction : Action
             timer = 0f;
             return Status.Running;
         }
-        if (timer2 > 40f)
+        if (bossInfo.IsName("Die"))
         {
-            timer2 = 0f;
             return Status.Success;
         }
-
         return Status.Running;
     }
 
