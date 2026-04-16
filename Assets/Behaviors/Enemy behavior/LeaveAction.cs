@@ -67,10 +67,6 @@ public partial class LeaveAction : Action
         {
             spawner = close.GetComponent<EnemySpawner>();
             spawner.activeEnemies--;
-            if (spawner.activeBossEnemies > 0)
-            {
-              spawner.activeBossEnemies--;
-            }
             GameObject.Destroy(Self.Value);
         return Status.Success;
         }

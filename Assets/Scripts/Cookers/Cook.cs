@@ -7,6 +7,7 @@ public class Cook : MonoBehaviour
     public float time;
     public Image fill;
     public float max;
+    public float delay = 0.5f;
 
     [SerializeField] private string Type;
 
@@ -22,19 +23,35 @@ public class Cook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StartTimer)
+        if (StartTimer && delay <= 0.0f)
         {
+            if (!timer.activeSelf)
+            {
+                timer.SetActive(true);
+            }
+
             time -= Time.deltaTime;
             fill.fillAmount = time / max;
             if (time < 0)
             {
                 time = 0;
+
+                // If Obj can Change
                 if (obj != null)
                 {                    
                     obj.gameObject.transform.parent.GetComponent<Change>().ChangeObj();
                     timer.SetActive(false);
                 }
+                else
+                {
+                    timer.SetActive(false);
+                    StartTimer = false;
+                }
             }
+        }
+        else
+        {
+            delay -= Time.deltaTime;
         }
     }
 
@@ -52,13 +69,13 @@ public class Cook : MonoBehaviour
         }
         if (other.gameObject.tag == "Food")
         {
-            obj = other;
-            timer.GetComponent<Image>().color = fill.color;
+            obj = null;
+            //timer.GetComponent<Image>().color = fill.color;
             fill.color = Color.red;
             StartTimer = true;
             time = 5;
+            delay = 2.0f;
             max = time;
-            timer.SetActive(true);
         }
     }
 

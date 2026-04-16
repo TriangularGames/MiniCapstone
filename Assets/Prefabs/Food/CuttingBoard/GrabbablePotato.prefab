@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Change
   cookedVersion: {fileID: 4518119345002711243, guid: 2da884f9e9d70ba49a18a2ac3a0d1867, type: 3}
+  foodSpawner: {fileID: 0}
 --- !u!1 &7440594737325867105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5273346724952933240, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}

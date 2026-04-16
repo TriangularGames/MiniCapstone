@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Change
   cookedVersion: {fileID: 910611288271320779, guid: 3df80c9c6355d8c48a1f1a8aafd291f5, type: 3}
+  foodSpawner: {fileID: 0}
 --- !u!4 &1041429347567244537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5273346724698897441, guid: 872d51e7672f5fb4ba35ed9d80c1d605, type: 3}

@@ -335,6 +335,7 @@ namespace Fusion.Addons.ConnectionManagerAddon
 
                     Debug.Log($"Found session {sessionInfo.Name} playerCount {sessionInfo.PlayerCount}");
                 }
+                sessionListUIHandler.newGame.interactable = true;
             }
         }
 #endregion

@@ -73,7 +73,10 @@ PrefabInstance:
       addedObject: {fileID: 6278109287420923317}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b72d6c94948c23749a069fb296f746b2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4653756248787993920}
+      addedObject: {fileID: -7233089063381206150}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b72d6c94948c23749a069fb296f746b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7845193148114130209}
     - targetCorrespondingSourceObject: {fileID: -7087497330730124887, guid: b72d6c94948c23749a069fb296f746b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7889668925831260462}
@@ -133,7 +136,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4653756248787993920
+--- !u!114 &-7233089063381206150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,17 +148,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  m_Graph: {fileID: -1979029016348998224, guid: 375f49bdd1abb5a44839779b6fbe43bf, type: 2}
+  m_Graph: {fileID: -4105775757289976506, guid: 71ec260fcd1210845ba535d2f2c13bd2, type: 2}
   m_BlackboardVariableOverridesList:
-  - rid: 2712864758173794378
-  - rid: 2712864758173794379
-  m_OriginalGraph: {fileID: 0}
+  - rid: 2712864909599441137
+  - rid: 2712864909599441138
+  - rid: 2712864909599441139
+  - rid: 2712864909599441140
+  - rid: 2712864909599441141
+  - rid: 2712864982938681468
+  m_OriginalGraph: {fileID: -4105775757289976506, guid: 71ec260fcd1210845ba535d2f2c13bd2, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
-    - rid: 2712864758173794378
+    - rid: 2712864909599441137
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -163,11 +170,61 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 2151384992869589067}
-    - rid: 2712864758173794379
+    - rid: 2712864909599441138
       type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 5608077366165041652
-          m_Value1: 8552482580233756208
-        Name: EnemyAI
+          m_Value0: 12264765653663980858
+          m_Value1: 15008860194249572401
+        Name: MinionAI
         m_Value: {fileID: 6278109287420923317}
+    - rid: 2712864909599441139
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1289349891269537884
+          m_Value1: 16566323330671539610
+        Name: Brick
+        m_Value: {fileID: 588592057831477659, guid: 7dcc8dbdfad80dd4b972e83feeeac236, type: 3}
+    - rid: 2712864909599441140
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4768360638340837686
+          m_Value1: 1540397167356021156
+        Name: Waypoint
+        m_Value: {fileID: 0}
+    - rid: 2712864909599441141
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15042378003269811286
+          m_Value1: 14720799439294502008
+        Name: Spawner
+        m_Value: {fileID: 0}
+    - rid: 2712864982938681468
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14919854372975462290
+          m_Value1: 9917250819880665145
+        Name: Boss
+        m_Value: {fileID: 4884861319093805981, guid: e6c716c6c8335744081d0dee22fedae0, type: 3}
+--- !u!114 &-7845193148114130209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151384992869589067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
+  SortKey: 2555334774
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours: []
+  ForceRemoteRenderTimeframe: 0

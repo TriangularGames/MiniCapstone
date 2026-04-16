@@ -74,9 +74,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1506408772085949891}
-    - targetCorrespondingSourceObject: {fileID: 2963214196499252877, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4697335623331624166}
+      addedObject: {fileID: 2423079449990443566}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4241388107352395103}
   m_SourcePrefab: {fileID: 100100000, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
 --- !u!1 &6245827230608100184 stripped
 GameObject:
@@ -161,18 +164,31 @@ MonoBehaviour:
           m_Value1: 8132943040584430916
         Name: Spawner
         m_Value: {fileID: 0}
---- !u!1 &8319195843880890500 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2963214196499252877, guid: 11626e15a9d62e741aae7ece6dc373e6, type: 3}
-  m_PrefabInstance: {fileID: 6515806063308486153}
+--- !u!114 &2423079449990443566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &4697335623331624166
+  m_GameObject: {fileID: 6245827230608100184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
+  SortKey: 2579287762
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours: []
+  ForceRemoteRenderTimeframe: 0
+--- !u!136 &4241388107352395103
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8319195843880890500}
+  m_GameObject: {fileID: 6245827230608100184}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -185,7 +201,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7416821
-  m_Height: 1.4901502
+  m_Radius: 1
+  m_Height: 3.5
   m_Direction: 1
-  m_Center: {x: -0.00000007421224, y: 0.7450746, z: 0.19508725}
+  m_Center: {x: 0, y: 1.75, z: 0}

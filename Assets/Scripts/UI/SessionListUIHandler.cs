@@ -11,10 +11,12 @@ public class SessionListUIHandler : MonoBehaviour
     public TextMeshProUGUI statusText;
     public GameObject sessionItemListPrefab;
     public VerticalLayoutGroup verticalLayoutGroup;
+    public Button newGame;
 
     private void Awake()
     {
         ClearList();
+        newGame.interactable = false;
     }
 
     public void ClearList()
@@ -57,6 +59,7 @@ public class SessionListUIHandler : MonoBehaviour
 
         statusText.text = "No game session found";
         statusText.gameObject.SetActive(true);
+        newGame.interactable = true;
     }
 
     public void OnLookingForGameSessions()

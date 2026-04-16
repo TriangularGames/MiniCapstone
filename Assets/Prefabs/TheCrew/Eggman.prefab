@@ -82,9 +82,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9edd831d954cf1c4b8a62eb446dc23ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4894135296924160075}
-    - targetCorrespondingSourceObject: {fileID: -7683670565838226014, guid: 9edd831d954cf1c4b8a62eb446dc23ba, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9edd831d954cf1c4b8a62eb446dc23ba, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3991087496640493509}
+      addedObject: {fileID: -5827104637781708991}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9edd831d954cf1c4b8a62eb446dc23ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2994584854888854272}
   m_SourcePrefab: {fileID: 100100000, guid: 9edd831d954cf1c4b8a62eb446dc23ba, type: 3}
 --- !u!1 &4884861319093805981 stripped
 GameObject:
@@ -135,18 +138,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &6509378184465261422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7683670565838226014, guid: 9edd831d954cf1c4b8a62eb446dc23ba, type: 3}
-  m_PrefabInstance: {fileID: 5695904182250036940}
+--- !u!114 &-5827104637781708991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &3991087496640493509
+  m_GameObject: {fileID: 4884861319093805981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
+  SortKey: 4056544055
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours: []
+  ForceRemoteRenderTimeframe: 0
+--- !u!136 &2994584854888854272
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509378184465261422}
+  m_GameObject: {fileID: 4884861319093805981}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -159,7 +175,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.14
-  m_Height: 0.7
-  m_Direction: 2
-  m_Center: {x: -0.00000008940697, y: -0.041884653, z: 0.33520752}
+  m_Radius: 1
+  m_Height: 3.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}

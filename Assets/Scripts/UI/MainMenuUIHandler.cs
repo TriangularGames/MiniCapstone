@@ -1,6 +1,3 @@
-using Fusion;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Fusion.Addons.ConnectionManagerAddon;
@@ -11,7 +8,6 @@ public class MainMenuUIHandler : MonoBehaviour
     public GameObject playerDetailsPanel;
     public GameObject sessionBrowserPanel;
     public GameObject createSessionPanel;
-    public GameObject statusPanel;
     public GameObject BG;
 
     [Header("Player settings")]
@@ -29,11 +25,9 @@ public class MainMenuUIHandler : MonoBehaviour
 
     void HideAllPanels()
     {
-        BG.SetActive(false);
         playerDetailsPanel.SetActive(false);
         createSessionPanel.SetActive(false);
         sessionBrowserPanel.SetActive(false);
-        statusPanel.SetActive(false);
     }
 
     public void OnFindGameClicked()
@@ -47,14 +41,14 @@ public class MainMenuUIHandler : MonoBehaviour
 
         HideAllPanels();
 
-        sessionBrowserPanel.gameObject.SetActive(true);
-        FindFirstObjectByType<SessionListUIHandler>().OnLookingForGameSessions();
+        sessionBrowserPanel.SetActive(true);
+
+        sessionBrowserPanel.GetComponent<SessionListUIHandler>().OnLookingForGameSessions();
     }
 
     public void OnCreateNewGameClicked()
     {
         HideAllPanels();
-
         createSessionPanel.SetActive(true);
     }
 
@@ -65,14 +59,12 @@ public class MainMenuUIHandler : MonoBehaviour
         if (true) await connectionManager.Connect(sessionNameInputField.text);
 
         HideAllPanels();
-
-        statusPanel.gameObject.SetActive(true);
+        BG.SetActive(false);
     }
 
     public void OnJoiningServer()
     {
         HideAllPanels();
-
-        statusPanel.gameObject.SetActive(true);
+        BG.SetActive(false);
     }
 }
